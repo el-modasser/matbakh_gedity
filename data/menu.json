@@ -1,11 +1,11 @@
 {
   "trays": {
-    "name": "Trays From Abu Hamza",
-    "name_ar": "صواني أبو حمزة",
+    "name": "Trays From Matbakh Gedity",
+    "name_ar": "صواني مطبخ جيدتي",
     "items": [
       {
-        "name": "Abu Hamza Tray",
-        "name_ar": "صينية أبو حمزة",
+        "name": "Matbakh Gedity Tray",
+        "name_ar": "صينية مطبخ جيدتي",
         "description": "",
         "description_ar": "",
         "price": 1050,
@@ -62,8 +62,8 @@
     ]
   },
   "casseroles": {
-    "name": "Abu Hamza Casseroles",
-    "name_ar": "طواجن أبو حمزة",
+    "name": "Matbakh Gedity Casseroles",
+    "name_ar": "طواجن مطبخ جيدتي",
     "items": [
       {
         "name": "Okra & Meat Casserole",
@@ -577,8 +577,8 @@
         "image": ""
       },
       {
-        "name": "Abu Hamza Hawawshi",
-        "name_ar": "حواوشي أبو حمزة",
+        "name": "Matbakh Gedity Hawawshi",
+        "name_ar": "حواوشي مطبخ جيدتي",
         "description": "",
         "description_ar": "",
         "price": 70,
@@ -625,8 +625,8 @@
         "image": ""
       },
       {
-        "name": "Abu Hamza Special Hawawshi (with pastrami)",
-        "name_ar": "حواوشي أبو حمزة بالبسطرمة",
+        "name": "Matbakh Gedity Special Hawawshi (with pastrami)",
+        "name_ar": "حواوشي مطبخ جيدتي بالبسطرمة",
         "description": "",
         "description_ar": "",
         "price": 100,
@@ -705,8 +705,8 @@
     ]
   },
   "meals": {
-    "name": "Meals from Abu Hamza",
-    "name_ar": "وجبات أبو حمزة",
+    "name": "Meals from Matbakh Gedity",
+    "name_ar": "وجبات مطبخ جيدتي",
     "items": [
       {
         "name": "Mixed Meal",
@@ -717,8 +717,8 @@
         "image": ""
       },
       {
-        "name": "Abu Hamza Meal",
-        "name_ar": "وجبة أبو حمزة",
+        "name": "Matbakh Gedity Meal",
+        "name_ar": "وجبة مطبخ جيدتي",
         "description": "",
         "description_ar": "",
         "price": 120,
@@ -805,8 +805,8 @@
         "image": ""
       },
       {
-        "name": "Abu Hamza Kebab Meal",
-        "name_ar": "وجبة كباب أبو حمزة",
+        "name": "Matbakh Gedity Kebab Meal",
+        "name_ar": "وجبة كباب مطبخ جيدتي",
         "description": "",
         "description_ar": "",
         "price": 290,
@@ -823,8 +823,8 @@
     ]
   },
   "kitchen": {
-    "name": "Abu Hamza Kitchen (Hot Dishes & Fatta etc.)",
-    "name_ar": "مطبخ أبو حمزة",
+    "name": "Matbakh Gedity Kitchen (Hot Dishes & Fatta etc.)",
+    "name_ar": "مطبخ جيدتي",
     "items": [
       {
         "name": "Trotter Soup",
@@ -963,8 +963,8 @@
     ]
   },
   "sweets": {
-    "name": "Abu Hamza Sweets",
-    "name_ar": "حلويات أبو حمزة",
+    "name": "Matbakh Gedity Sweets",
+    "name_ar": "حلويات مطبخ جيدتي",
     "items": [
       {
         "name": "Rice with Milk",
