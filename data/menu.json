@@ -1,0 +1,1033 @@
+{
+  "trays": {
+    "name": "Trays From Abu Hamza",
+    "name_ar": "صواني أبو حمزة",
+    "items": [
+      {
+        "name": "Abu Hamza Tray",
+        "name_ar": "صينية أبو حمزة",
+        "description": "",
+        "description_ar": "",
+        "price": 1050,
+        "image": ""
+      },
+      {
+        "name": "Large Family Tray",
+        "name_ar": "صينية العائلة الكبيرة",
+        "description": "",
+        "description_ar": "",
+        "price": 2150,
+        "image": ""
+      },
+      {
+        "name": "Home Tray",
+        "name_ar": "صينية البيت",
+        "description": "",
+        "description_ar": "",
+        "price": 950,
+        "image": ""
+      },
+      {
+        "name": "Groom's Tray",
+        "name_ar": "صينية العريس",
+        "description": "",
+        "description_ar": "",
+        "price": 1600,
+        "image": ""
+      },
+      {
+        "name": "Teacher's Tray",
+        "name_ar": "صينية المعلم",
+        "description": "",
+        "description_ar": "",
+        "price": 320,
+        "image": ""
+      },
+      {
+        "name": "Food Lover's Tray",
+        "name_ar": "صينية الأكيلة",
+        "description": "",
+        "description_ar": "",
+        "price": 1300,
+        "image": ""
+      },
+      {
+        "name": "Gathering Tray",
+        "name_ar": "صينية اللمة",
+        "description": "",
+        "description_ar": "",
+        "price": 1200,
+        "image": ""
+      }
+    ]
+  },
+  "casseroles": {
+    "name": "Abu Hamza Casseroles",
+    "name_ar": "طواجن أبو حمزة",
+    "items": [
+      {
+        "name": "Okra & Meat Casserole",
+        "name_ar": "طاجن بامية لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 210,
+        "image": ""
+      },
+      {
+        "name": "Potato & Meat Casserole",
+        "name_ar": "طاجن بطاطس لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 210,
+        "image": ""
+      },
+      {
+        "name": "Kebab Halla Casserole",
+        "name_ar": "طاجن كباب حلة",
+        "description": "",
+        "description_ar": "",
+        "price": 220,
+        "image": ""
+      },
+      {
+        "name": "Molokhiyah & Meat Casserole",
+        "name_ar": "طاجن ملوخية لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 190,
+        "image": ""
+      },
+      {
+        "name": "Potato & Chicken Casserole",
+        "name_ar": "طاجن بطاطس فراخ",
+        "description": "",
+        "description_ar": "",
+        "price": 130,
+        "image": ""
+      },
+      {
+        "name": "Plain Molokhiyah Casserole",
+        "name_ar": "طاجن ملوخية سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Akkawi Casserole",
+        "name_ar": "طاجن عكاوي",
+        "description": "",
+        "description_ar": "",
+        "price": 250,
+        "image": ""
+      },
+      {
+        "name": "Pigeon & Freekeh Casserole",
+        "name_ar": "طاجن حمام بالفريك",
+        "description": "",
+        "description_ar": "",
+        "price": 200,
+        "image": ""
+      },
+      {
+        "name": "Plain Vegetable Casserole",
+        "name_ar": "طاجن خضار سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Vine Leaves & Trotters Casserole",
+        "name_ar": "طاجن ورق عنب بالكوارع",
+        "description": "",
+        "description_ar": "",
+        "price": 250,
+        "image": ""
+      },
+      {
+        "name": "Meat Leaf",
+        "name_ar": "ورقة لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 220,
+        "image": ""
+      },
+      {
+        "name": "Sausage Leaf",
+        "name_ar": "ورقة سجق",
+        "description": "",
+        "description_ar": "",
+        "price": 220,
+        "image": ""
+      },
+      {
+        "name": "Chicken Leaf",
+        "name_ar": "ورقة فراخ",
+        "description": "",
+        "description_ar": "",
+        "price": 190,
+        "image": ""
+      },
+      {
+        "name": "Liver Leaf",
+        "name_ar": "ورقة كبدة",
+        "description": "",
+        "description_ar": "",
+        "price": 150,
+        "image": ""
+      }
+    ]
+  },
+  "meat_grills": {
+    "name": "Meat Grills",
+    "name_ar": "مشاوي اللحوم",
+    "items": [
+      {
+        "name": "Feathers (Lamb Ribs)",
+        "name_ar": "ريش",
+        "description": "",
+        "description_ar": "",
+        "price": 1150,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Lamb Kebab",
+        "name_ar": "كباب ضاني (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 1100,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Kondoz (Beef) Kofta",
+        "name_ar": "كفتة كندوز (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 490,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Mixed Grill",
+        "name_ar": "كيلو مشكل",
+        "description": "",
+        "description_ar": "",
+        "price": 900,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Lamb Kofta",
+        "name_ar": "ك كفتة ضاني (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 700,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Lamb Tarb (Lamb Fat Roll)",
+        "name_ar": "ك طرب ضاني (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 750,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Kondoz Tarb (Beef Fat Roll)",
+        "name_ar": "ك طرب كندوز (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 600,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Mombar (Stuffed Intestines)",
+        "name_ar": "ك ممبار (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 250,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Grilled Sausage",
+        "name_ar": "ك سجق مشوي (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 500,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Alexandrian Sausage",
+        "name_ar": "ك سجق اسكندراني (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 550,
+        "image": ""
+      },
+      {
+        "name": "Moza Lamb (Lamb Shank)",
+        "name_ar": "موزة ضاني",
+        "description": "",
+        "description_ar": "",
+        "price": 420,
+        "image": ""
+      },
+      {
+        "name": "Moza Lamb with Vegetables & Rice",
+        "name_ar": "موزة ضاني بالخضار والارز",
+        "description": "",
+        "description_ar": "",
+        "price": 460,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Neva (Lamb Fillet)",
+        "name_ar": "ك نيفا (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 850,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Grilled Lamb Liver",
+        "name_ar": "ك كبدة ضاني مشوي (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 800,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Mixed Mix (Kebab + Kofta + Sausage + Tarb)",
+        "name_ar": "ك مشكل ميكس (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 750,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Steak",
+        "name_ar": "ك استيك (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 850,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Alexandrian Liver",
+        "name_ar": "ك كبدة اسكندراني (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 370,
+        "image": ""
+      }
+    ]
+  },
+  "grilled_birds": {
+    "name": "Grilled Birds",
+    "name_ar": "طيور مشوية",
+    "items": [
+      {
+        "name": "Chicken Tikka",
+        "name_ar": "فرخة تكا",
+        "description": "",
+        "description_ar": "",
+        "price": 330,
+        "image": ""
+      },
+      {
+        "name": "Chicken Shish",
+        "name_ar": "فرخة شيش",
+        "description": "",
+        "description_ar": "",
+        "price": 330,
+        "image": ""
+      },
+      {
+        "name": "Boneless Chicken",
+        "name_ar": "فرخة مخلية",
+        "description": "",
+        "description_ar": "",
+        "price": 350,
+        "image": ""
+      },
+      {
+        "name": "Pigeon",
+        "name_ar": "فرد حمام",
+        "description": "",
+        "description_ar": "",
+        "price": 165,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Grilled Breasts",
+        "name_ar": "ك صدور مشوي (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 450,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Shish Tawook",
+        "name_ar": "ك شيش طاووق (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": 450,
+        "image": ""
+      },
+      {
+        "name": "1 Kilo Chicken Kofta",
+        "name_ar": "ك كفتة فراخ (كيلو)",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      }
+    ]
+  },
+  "sandwiches": {
+    "name": "Sandwiches",
+    "name_ar": "ساندوتشات",
+    "items": [
+      {
+        "name": "Potato Sandwich",
+        "name_ar": "ساندوتش بطاطس",
+        "description": "",
+        "description_ar": "",
+        "price": 20,
+        "image": ""
+      },
+      {
+        "name": "Alexandrian Liver Sandwich",
+        "name_ar": "ساندوتش كبدة اسكندراني",
+        "description": "",
+        "description_ar": "",
+        "price": 35,
+        "image": ""
+      },
+      {
+        "name": "Potato Packet",
+        "name_ar": "باكيت بطاطس",
+        "description": "",
+        "description_ar": "",
+        "price": 25,
+        "image": ""
+      },
+      {
+        "name": "Kanduz Tarb Sandwich",
+        "name_ar": "ساندوتش طرب كندوز",
+        "description": "",
+        "description_ar": "",
+        "price": 100,
+        "image": ""
+      },
+      {
+        "name": "Lamb Tarb Sandwich",
+        "name_ar": "ساندوتش طرب ضاني",
+        "description": "",
+        "description_ar": "",
+        "price": [
+          80,
+          120
+        ],
+        "image": ""
+      },
+      {
+        "name": "Liver Sandwich",
+        "name_ar": "ساندوتش الكبدة",
+        "description": "",
+        "description_ar": "",
+        "price": 100,
+        "image": ""
+      },
+      {
+        "name": "Sausage Sandwich",
+        "name_ar": "ساندوتش سجق",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      },
+      {
+        "name": "Grilled Kofta Sandwich",
+        "name_ar": "ساندوتش كفتة مشوي",
+        "description": "",
+        "description_ar": "",
+        "price": [
+          55,
+          70
+        ],
+        "image": ""
+      },
+      {
+        "name": "Mixed Grill Sandwich",
+        "name_ar": "ساندوتش مشكل مشوي",
+        "description": "",
+        "description_ar": "",
+        "price": [
+          55,
+          70
+        ],
+        "image": ""
+      },
+      {
+        "name": "Kanduz Kofta Sandwich",
+        "name_ar": "ساندوتش كفتة كندوز",
+        "description": "",
+        "description_ar": "",
+        "price": [
+          55,
+          70
+        ],
+        "image": ""
+      },
+      {
+        "name": "Pack/Other Sandwiches (various)",
+        "name_ar": "سندوتشات أخرى",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      }
+    ]
+  },
+  "salads_sides": {
+    "name": "Salads & Sides",
+    "name_ar": "سلطات وإضافات",
+    "items": [
+      {
+        "name": "Pickles (Torshi)",
+        "name_ar": "طرشي",
+        "description": "",
+        "description_ar": "",
+        "price": 10,
+        "image": ""
+      },
+      {
+        "name": "Pickled Tomatoes",
+        "name_ar": "طماطم مخللة",
+        "description": "",
+        "description_ar": "",
+        "price": 15,
+        "image": ""
+      },
+      {
+        "name": "Yogurt",
+        "name_ar": "زبادى",
+        "description": "",
+        "description_ar": "",
+        "price": 30,
+        "image": ""
+      },
+      {
+        "name": "Green Salad",
+        "name_ar": "سلطة خضراء",
+        "description": "",
+        "description_ar": "",
+        "price": 15,
+        "image": ""
+      },
+      {
+        "name": "Tahini",
+        "name_ar": "طحينة",
+        "description": "",
+        "description_ar": "",
+        "price": [
+          20,
+          25,
+          30,
+          40
+        ],
+        "image": ""
+      },
+      {
+        "name": "Baba Ghanoush",
+        "name_ar": "بابا غنوج",
+        "description": "",
+        "description_ar": "",
+        "price": 20,
+        "image": ""
+      },
+      {
+        "name": "Pickled Eggplant",
+        "name_ar": "باذنجان مخلل",
+        "description": "",
+        "description_ar": "",
+        "price": 20,
+        "image": ""
+      },
+      {
+        "name": "Plain Molokhiyah Casserole (side)",
+        "name_ar": "طاجن ملوخية سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      }
+    ]
+  },
+  "hawawshi": {
+    "name": "Hawawshi",
+    "name_ar": "حواوشي",
+    "items": [
+      {
+        "name": "Plain Hawawshi",
+        "name_ar": "حواوشي سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 60,
+        "image": ""
+      },
+      {
+        "name": "Abu Hamza Hawawshi",
+        "name_ar": "حواوشي أبو حمزة",
+        "description": "",
+        "description_ar": "",
+        "price": 70,
+        "image": ""
+      },
+      {
+        "name": "Lamb Hawawshi",
+        "name_ar": "حواوشي ضاني",
+        "description": "",
+        "description_ar": "",
+        "price": 90,
+        "image": ""
+      },
+      {
+        "name": "Lamb & Cheese Hawawshi",
+        "name_ar": "حواوشي ضاني بالجبنة",
+        "description": "",
+        "description_ar": "",
+        "price": 95,
+        "image": ""
+      },
+      {
+        "name": "Super Hawawshi",
+        "name_ar": "حواوشي سوبر",
+        "description": "",
+        "description_ar": "",
+        "price": 100,
+        "image": ""
+      },
+      {
+        "name": "Super Cheese Hawawshi",
+        "name_ar": "حواوشي سوبر بالجبنة",
+        "description": "",
+        "description_ar": "",
+        "price": 105,
+        "image": ""
+      },
+      {
+        "name": "Mixed Cheese Hawawshi",
+        "name_ar": "حواوشي بالجبنة",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      },
+      {
+        "name": "Abu Hamza Special Hawawshi (with pastrami)",
+        "name_ar": "حواوشي أبو حمزة بالبسطرمة",
+        "description": "",
+        "description_ar": "",
+        "price": 100,
+        "image": ""
+      }
+    ]
+  },
+  "pasta": {
+    "name": "Pasta",
+    "name_ar": "مكرونة",
+    "items": [
+      {
+        "name": "Meat Pasta",
+        "name_ar": "مكرونة لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Sausage Pasta",
+        "name_ar": "مكرونة سجق",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Liver Pasta",
+        "name_ar": "مكرونة كبدة",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Béchamel Pasta",
+        "name_ar": "مكرونة بشاميل",
+        "description": "",
+        "description_ar": "",
+        "price": 95,
+        "image": ""
+      },
+      {
+        "name": "Negresco Pasta",
+        "name_ar": "مكرونة نجرسكو",
+        "description": "",
+        "description_ar": "",
+        "price": 75,
+        "image": ""
+      },
+      {
+        "name": "Chicken Pasta",
+        "name_ar": "مكرونة فراخ",
+        "description": "",
+        "description_ar": "",
+        "price": 60,
+        "image": ""
+      },
+      {
+        "name": "Small Pasta",
+        "name_ar": "مكرونة صغير",
+        "description": "",
+        "description_ar": "",
+        "price": 40,
+        "image": ""
+      },
+      {
+        "name": "Pasta with Sauce",
+        "name_ar": "مكرونة صلصة",
+        "description": "",
+        "description_ar": "",
+        "price": 35,
+        "image": ""
+      }
+    ]
+  },
+  "meals": {
+    "name": "Meals from Abu Hamza",
+    "name_ar": "وجبات أبو حمزة",
+    "items": [
+      {
+        "name": "Mixed Meal",
+        "name_ar": "وجبة ميكس",
+        "description": "",
+        "description_ar": "",
+        "price": 185,
+        "image": ""
+      },
+      {
+        "name": "Abu Hamza Meal",
+        "name_ar": "وجبة أبو حمزة",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      },
+      {
+        "name": "Kofta Kanduz Meal",
+        "name_ar": "وجبة كفتة كندوز",
+        "description": "",
+        "description_ar": "",
+        "price": 175,
+        "image": ""
+      },
+      {
+        "name": "Kofta & Sausage Meal",
+        "name_ar": "وجبة كفتة ضاني بسجق",
+        "description": "",
+        "description_ar": "",
+        "price": 195,
+        "image": ""
+      },
+      {
+        "name": "Shish Tawook Meal",
+        "name_ar": "وجبة شيش طاووق",
+        "description": "",
+        "description_ar": "",
+        "price": 290,
+        "image": ""
+      },
+      {
+        "name": "Grilled Chicken Meal",
+        "name_ar": "وجبة فراخ مشوية",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      },
+      {
+        "name": "Chicken Fillet Meal",
+        "name_ar": "وجبة صدور فليه",
+        "description": "",
+        "description_ar": "",
+        "price": 150,
+        "image": ""
+      },
+      {
+        "name": "Diet Chicken Meal",
+        "name_ar": "وجبة دایت",
+        "description": "",
+        "description_ar": "",
+        "price": 150,
+        "image": ""
+      },
+      {
+        "name": "Kofta Meal",
+        "name_ar": "وجبة كفتة",
+        "description": "",
+        "description_ar": "",
+        "price": 160,
+        "image": ""
+      },
+      {
+        "name": "Grilled Chicken Meal (regular)",
+        "name_ar": "وجبة فراخ",
+        "description": "",
+        "description_ar": "",
+        "price": 190,
+        "image": ""
+      },
+      {
+        "name": "El-Madameh Meal (stuffed/roasted)",
+        "name_ar": "وجبة المدمعة",
+        "description": "",
+        "description_ar": "",
+        "price": 180,
+        "image": ""
+      },
+      {
+        "name": "Sheikh El-Fakhr Meal",
+        "name_ar": "وجبة شيخ الفخر",
+        "description": "",
+        "description_ar": "",
+        "price": 220,
+        "image": ""
+      },
+      {
+        "name": "Abu Hamza Kebab Meal",
+        "name_ar": "وجبة كباب أبو حمزة",
+        "description": "",
+        "description_ar": "",
+        "price": 290,
+        "image": ""
+      },
+      {
+        "name": "Saver Meal",
+        "name_ar": "وجبة التوفير",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      }
+    ]
+  },
+  "kitchen": {
+    "name": "Abu Hamza Kitchen (Hot Dishes & Fatta etc.)",
+    "name_ar": "مطبخ أبو حمزة",
+    "items": [
+      {
+        "name": "Trotter Soup",
+        "name_ar": "شوربة كوارع",
+        "description": "",
+        "description_ar": "",
+        "price": 100,
+        "image": ""
+      },
+      {
+        "name": "Plain Fatta",
+        "name_ar": "فتة سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 60,
+        "image": ""
+      },
+      {
+        "name": "Meat Fatta",
+        "name_ar": "فتة لحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 200,
+        "image": ""
+      },
+      {
+        "name": "Trotter Fatta",
+        "name_ar": "فتة كوارع",
+        "description": "",
+        "description_ar": "",
+        "price": 250,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Zucchini",
+        "name_ar": "محشي كوسة",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Eggplant",
+        "name_ar": "محشي باذنجان",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Pepper",
+        "name_ar": "محشي فلفل",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Meat Pastry Tray (Raqaq with meat)",
+        "name_ar": "صينية رقاق باللحمة",
+        "description": "",
+        "description_ar": "",
+        "price": 120,
+        "image": ""
+      }
+    ]
+  },
+  "rice_dishes": {
+    "name": "Rice & Side Dishes",
+    "name_ar": "أطباق الأرز والإضافات",
+    "items": [
+      {
+        "name": "Rice with Vermicelli (plain)",
+        "name_ar": "أرز شعرية سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 30,
+        "image": ""
+      },
+      {
+        "name": "Vegetable Rice",
+        "name_ar": "أرز بالخضار",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Alexandrian Liver Rice",
+        "name_ar": "أرز كبدة اسكندراني",
+        "description": "",
+        "description_ar": "",
+        "price": 50,
+        "image": ""
+      },
+      {
+        "name": "Basmati Rice",
+        "name_ar": "أرز بسمتي",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Maamour (Roz Ma'ammar / cream rice)",
+        "name_ar": "أرز معمر",
+        "description": "",
+        "description_ar": "",
+        "price": 70,
+        "image": ""
+      },
+      {
+        "name": "Mixed Stuffed Vegetables",
+        "name_ar": "محشي مشكل",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Vine Leaves",
+        "name_ar": "محشي ورق عنب",
+        "description": "",
+        "description_ar": "",
+        "price": 45,
+        "image": ""
+      },
+      {
+        "name": "Orzo Soup (Soup Lisan Asfour)",
+        "name_ar": "شوربة لسان عصفور",
+        "description": "",
+        "description_ar": "",
+        "price": 20,
+        "image": ""
+      }
+    ]
+  },
+  "sweets": {
+    "name": "Abu Hamza Sweets",
+    "name_ar": "حلويات أبو حمزة",
+    "items": [
+      {
+        "name": "Rice with Milk",
+        "name_ar": "أرز باللبن",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      },
+      {
+        "name": "Muhallabia",
+        "name_ar": "مهلبية",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      },
+      {
+        "name": "Umm Ali",
+        "name_ar": "أم علي",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      },
+      {
+        "name": "Kunafa on Charcoal",
+        "name_ar": "كنافة على الفحم",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      }
+    ]
+  },
+  "soft_drinks": {
+    "name": "Soft Drinks",
+    "name_ar": "مشروبات غازية",
+    "items": [
+      {
+        "name": "Small Water",
+        "name_ar": "مياه صغيرة",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      },
+      {
+        "name": "Big Water",
+        "name_ar": "مياه كبيرة",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      },
+      {
+        "name": "Pepsi",
+        "name_ar": "بيبسي",
+        "description": "",
+        "description_ar": "",
+        "price": null,
+        "image": ""
+      }
+    ]
+  }
+}
