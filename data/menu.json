@@ -1,11 +1,11 @@
 {
   "trays": {
     "name": "Trays From Matbakh Gedity",
-    "name_ar": "صواني مطبخ جيدتي",
+    "name_ar": "صواني مطبخ جدتي",
     "items": [
       {
         "name": "Matbakh Gedity Tray",
-        "name_ar": "صينية مطبخ جيدتي",
+        "name_ar": "صينية مطبخ جدتي",
         "description": "",
         "description_ar": "",
         "price": 1050,
@@ -63,7 +63,7 @@
   },
   "casseroles": {
     "name": "Matbakh Gedity Casseroles",
-    "name_ar": "طواجن مطبخ جيدتي",
+    "name_ar": "طواجن مطبخ جدتي",
     "items": [
       {
         "name": "Okra & Meat Casserole",
@@ -578,7 +578,7 @@
       },
       {
         "name": "Matbakh Gedity Hawawshi",
-        "name_ar": "حواوشي مطبخ جيدتي",
+        "name_ar": "حواوشي مطبخ جدتي",
         "description": "",
         "description_ar": "",
         "price": 70,
@@ -626,7 +626,7 @@
       },
       {
         "name": "Matbakh Gedity Special Hawawshi (with pastrami)",
-        "name_ar": "حواوشي مطبخ جيدتي بالبسطرمة",
+        "name_ar": "حواوشي مطبخ جدتي بالبسطرمة",
         "description": "",
         "description_ar": "",
         "price": 100,
@@ -706,7 +706,7 @@
   },
   "meals": {
     "name": "Meals from Matbakh Gedity",
-    "name_ar": "وجبات مطبخ جيدتي",
+    "name_ar": "وجبات مطبخ جدتي",
     "items": [
       {
         "name": "Mixed Meal",
@@ -718,7 +718,7 @@
       },
       {
         "name": "Matbakh Gedity Meal",
-        "name_ar": "وجبة مطبخ جيدتي",
+        "name_ar": "وجبة مطبخ جدتي",
         "description": "",
         "description_ar": "",
         "price": 120,
@@ -806,7 +806,7 @@
       },
       {
         "name": "Matbakh Gedity Kebab Meal",
-        "name_ar": "وجبة كباب مطبخ جيدتي",
+        "name_ar": "وجبة كباب مطبخ جدتي",
         "description": "",
         "description_ar": "",
         "price": 290,
@@ -824,7 +824,7 @@
   },
   "kitchen": {
     "name": "Matbakh Gedity Kitchen (Hot Dishes & Fatta etc.)",
-    "name_ar": "مطبخ جيدتي",
+    "name_ar": "مطبخ جدتي",
     "items": [
       {
         "name": "Trotter Soup",
@@ -964,7 +964,7 @@
   },
   "sweets": {
     "name": "Matbakh Gedity Sweets",
-    "name_ar": "حلويات مطبخ جيدتي",
+    "name_ar": "حلويات مطبخ جدتي",
     "items": [
       {
         "name": "Rice with Milk",

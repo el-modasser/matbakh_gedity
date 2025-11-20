@@ -10,31 +10,30 @@ const languages = {
   ar: { code: 'ar', name: 'العربية', dir: 'rtl' }
 };
 
-// Helper function to format prices (handles arrays, null, and numbers)
+// Helper function to format prices
 const formatPrice = (price, language = 'ar') => {
   if (price === null || price === undefined || price === '') {
-    return language === 'en' ? 'Price on request' : 'السعر عند الطلب';
+    return language === 'en' ? 'EGP 0' : 'ج.م 0';
   }
 
   if (Array.isArray(price)) {
     if (price.length === 0) {
-      return language === 'en' ? 'Price on request' : 'السعر عند الطلب';
+      return language === 'en' ? 'EGP 0' : 'ج.م 0';
     }
 
-    // For arrays, show range or multiple prices
     const minPrice = Math.min(...price);
     const maxPrice = Math.max(...price);
 
     if (minPrice === maxPrice) {
-      return `EGP ${minPrice}`;
+      return `EGP ${minPrice.toLocaleString()}`;
     } else {
       return language === 'en'
-        ? `EGP ${minPrice} - ${maxPrice}`
-        : `ج.م ${minPrice} - ${maxPrice}`;
+        ? `EGP ${minPrice.toLocaleString()} - ${maxPrice.toLocaleString()}`
+        : `ج.م ${minPrice.toLocaleString()} - ${maxPrice.toLocaleString()}`;
     }
   }
 
-  return `EGP ${price}`;
+  return `EGP ${price.toLocaleString()}`;
 };
 
 // Helper function to get text based on language
@@ -47,23 +46,24 @@ const getText = (item, field, language) => {
   return item[field] || '';
 };
 
-// Color system with proper contrast
+// Updated color system
 const colors = {
   primary: '#4EA595',
   secondary: '#EB4B36',
-  accent: '#FBF4DB',
+  accent: '#F8F5F0',
   white: '#FFFFFF',
+  black: '#1A1A1A',
   gray: {
-    50: '#f9fafb',
-    100: '#f3f4f6',
-    200: '#e5e7eb',
-    300: '#d1d5db',
-    400: '#9ca3af',
-    500: '#6b7280',
-    600: '#4b5563',
-    700: '#374151',
-    800: '#1f2937',
-    900: '#111827'
+    50: '#fafafa',
+    100: '#f5f5f5',
+    200: '#e5e5e5',
+    300: '#d4d4d4',
+    400: '#a3a3a3',
+    500: '#737373',
+    600: '#525252',
+    700: '#404040',
+    800: '#262626',
+    900: '#171717'
   }
 };
 
@@ -79,17 +79,24 @@ export default function MenuPage() {
   const [orderNotes, setOrderNotes] = useState('');
   const [visibleItems, setVisibleItems] = useState(8);
   const [imageLoadStates, setImageLoadStates] = useState({});
-  const [language, setLanguage] = useState('ar'); // Arabic as default
+  const [language, setLanguage] = useState('ar');
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
 
   const categoriesRef = useRef(null);
   const categoryScrollRef = useRef(null);
-  const observerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Set document direction based on language
+  // Set document language only (no direction change)
   useEffect(() => {
-    document.documentElement.dir = languages[language]?.dir || 'rtl';
     document.documentElement.lang = language;
   }, [language]);
+
+  // Reset hero image load state when category changes
+  useEffect(() => {
+    setHeroImageLoaded(false);
+  }, [selectedCategory]);
 
   // Sticky navigation effect
   useEffect(() => {
@@ -129,22 +136,45 @@ export default function MenuPage() {
     };
   }, [isItemModalOpen, isCartOpen]);
 
-  // Category scroll functions - Fixed for RTL
-  const scrollCategories = (direction) => {
-    if (categoryScrollRef.current) {
-      const scrollAmount = 200;
+  // Drag scroll functionality for categories
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - categoryScrollRef.current.offsetLeft);
+    setScrollLeft(categoryScrollRef.current.scrollLeft);
+  };
 
-      // For RTL languages, flip the scroll direction
-      let actualDirection = direction;
-      if (language === 'ar') {
-        actualDirection = direction === 'left' ? 'right' : 'left';
-      }
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
 
-      categoryScrollRef.current.scrollBy({
-        left: actualDirection === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - categoryScrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    categoryScrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Touch events for mobile
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - categoryScrollRef.current.offsetLeft);
+    setScrollLeft(categoryScrollRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - categoryScrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    categoryScrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
   };
 
   // Filter and sort items
@@ -187,8 +217,6 @@ export default function MenuPage() {
   // Cart functions
   const addToCart = (item, quantity = 1) => {
     if (!item) return;
-
-    // For items with price arrays, use the first price
     const cartPrice = Array.isArray(item.price) ? item.price[0] : (item.price || 0);
 
     setCart(prev => {
@@ -228,17 +256,17 @@ export default function MenuPage() {
 
   // WhatsApp order function
   const handleWhatsAppOrder = () => {
-    const whatsappNumber = "+201000000000"; // Egyptian number
+    const whatsappNumber = "+201000000000";
     let message = language === 'en'
       ? "Hello! I'd like to place an order from Matbakh Gedity.\n\n"
       : "مرحباً! أود تقديم طلب من مطبخ جديتي.\n\n";
 
     cart.forEach(item => {
       const itemName = language === 'ar' && item.name_ar ? item.name_ar : item.name;
-      message += `• ${item.quantity}x ${itemName} - EGP ${(item.price || 0) * (item.quantity || 0)}\n`;
+      message += `• ${item.quantity}x ${itemName} - EGP ${((item.price || 0) * (item.quantity || 0)).toLocaleString()}\n`;
     });
 
-    message += `\n${language === 'en' ? 'Total' : 'المجموع'}: EGP ${getTotalPrice()}`;
+    message += `\n${language === 'en' ? 'Total' : 'المجموع'}: EGP ${getTotalPrice().toLocaleString()}`;
 
     if (orderNotes) {
       message += `\n\n${language === 'en' ? 'Special Instructions' : 'تعليمات خاصة'}: ${orderNotes}`;
@@ -262,11 +290,15 @@ export default function MenuPage() {
     setImageLoadStates(prev => ({ ...prev, [itemName]: true }));
   };
 
+  const handleHeroImageLoad = () => {
+    setHeroImageLoaded(true);
+  };
+
   const cardVariants = {
     hidden: {
       y: 20,
       opacity: 0,
-      scale: 0.8
+      scale: 0.9
     },
     visible: {
       y: 0,
@@ -282,7 +314,7 @@ export default function MenuPage() {
 
   return (
     <Layout>
-      {/* Language Switcher - Relative positioning below logo */}
+      {/* Language Switcher */}
       <div style={languageSwitcherStyles}>
         <button
           onClick={() => setLanguage('en')}
@@ -319,7 +351,6 @@ export default function MenuPage() {
           </svg>
         </div>
 
-        {/* Custom Dropdown */}
         <div style={customDropdownStyles}>
           <select
             value={priceSort}
@@ -334,22 +365,26 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Sticky Categories Navigation with Scroll Buttons */}
+      {/* Sticky Categories Navigation with Drag Scroll */}
       <div
         ref={categoriesRef}
         className={`sticky-categories ${isSticky ? 'sticky' : ''}`}
         style={stickyContainerStyles}
       >
-        {/* Scroll buttons - arrows will flip direction in Arabic */}
-        <button
-          onClick={() => scrollCategories('left')}
-          style={scrollButtonStyles}
-          className="scroll-btn left"
+        <div
+          ref={categoryScrollRef}
+          style={{
+            ...categoryListStyles,
+            cursor: isDragging ? 'grabbing' : 'grab'
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {language === 'ar' ? '›' : '‹'}
-        </button>
-
-        <div ref={categoryScrollRef} style={categoryListStyles}>
           {Object.keys(menuData).map((categoryId) => (
             <button
               key={categoryId}
@@ -364,17 +399,49 @@ export default function MenuPage() {
             </button>
           ))}
         </div>
-
-        <button
-          onClick={() => scrollCategories('right')}
-          style={scrollButtonStyles}
-          className="scroll-btn right"
-        >
-          {language === 'ar' ? '‹' : '›'}
-        </button>
       </div>
 
-      {/* Rest of your component remains the same... */}
+      {/* Dynamic Category Hero Image */}
+      <motion.div
+        style={heroContainerStyles}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        key={selectedCategory}
+      >
+        <div style={heroImageWrapperStyles}>
+          {!heroImageLoaded && <div style={heroSkeletonStyles}></div>}
+          <img
+            src={`/images/hero/${menuData[selectedCategory]?.heroImage || 'default-hero.jpg'}`}
+            alt={getText(menuData[selectedCategory], 'name', language)}
+            style={{
+              ...heroImageStyles,
+              opacity: heroImageLoaded ? 1 : 0
+            }}
+            onLoad={handleHeroImageLoad}
+            onError={(e) => {
+              e.target.style.display = 'none';
+              setHeroImageLoaded(true);
+            }}
+          />
+        </div>
+        <div style={heroOverlayStyles}>
+          <motion.div
+            style={heroContentStyles}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <h1 style={heroTitleStyles}>
+              {getText(menuData[selectedCategory], 'name', language)}
+            </h1>
+            <p style={heroDescriptionStyles}>
+              {getText(menuData[selectedCategory], 'description', language)}
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
       {/* Main Content */}
       <div style={contentStyles}>
         {/* Menu Items Grid */}
@@ -398,7 +465,7 @@ export default function MenuPage() {
                 animate="visible"
                 transition={{ delay: index * 0.1 }}
                 whileHover={{
-                  y: -5,
+                  y: -8,
                   transition: { duration: 0.2 }
                 }}
                 onClick={() => handleItemClick(item)}
@@ -429,8 +496,7 @@ export default function MenuPage() {
                   <div style={titleContainerStyles}>
                     <h3 style={{
                       ...itemNameStyles,
-                      textAlign: language === 'ar' ? 'right' : 'left',
-                      direction: language === 'ar' ? 'rtl' : 'ltr'
+                      textAlign: language === 'ar' ? 'right' : 'left'
                     }}>
                       {getText(item, 'name', language)}
                     </h3>
@@ -438,8 +504,7 @@ export default function MenuPage() {
 
                   <p style={{
                     ...itemDescriptionStyles,
-                    textAlign: language === 'ar' ? 'right' : 'left',
-                    direction: language === 'ar' ? 'rtl' : 'ltr'
+                    textAlign: language === 'ar' ? 'right' : 'left'
                   }}>
                     {getText(item, 'description', language)}
                   </p>
@@ -490,72 +555,59 @@ export default function MenuPage() {
         )}
       </div>
 
-      {/* Floating Cart Button */}
+      {/* Single Proceed to Order Button */}
       {getTotalItems() > 0 && (
         <motion.button
           onClick={() => setIsCartOpen(true)}
-          style={floatingCartButtonStyles}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="floating-cart-btn"
+          style={proceedButtonStyles}
+          // whileHover={{ scale: 1.02 }}
+          // whileTap={{ scale: 0.98 }}
+          className="proceed-order-btn"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-          </svg>
-          <span style={cartBadgeStyles}>{getTotalItems()}</span>
+          <span style={proceedButtonTextStyles}>
+            {language === 'en' ? 'Proceed to Order' : 'المتابعة للطلب'}
+          </span>
+          <span style={proceedButtonBadgeStyles}>
+            {getTotalItems()} • {language === 'en' ? 'EGP' : 'ج.م'} {getTotalPrice().toLocaleString()}
+          </span>
         </motion.button>
       )}
 
-      {/* Floating WhatsApp Button */}
-      {getTotalItems() > 0 && (
-        <motion.button
-          onClick={handleWhatsAppOrder}
-          style={floatingWhatsAppButtonStyles}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="floating-whatsapp-btn"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.18-1.24-6.169-3.495-8.418" />
-          </svg>
-        </motion.button>
-      )}
-
-      {/* Order Summary Modal */}
+      {/* Enhanced Order Summary Modal */}
       <AnimatePresence>
         {isCartOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={modalOverlayStyles}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Glass-like Backdrop */}
             <motion.div
-              className="absolute inset-0 backdrop-blur-md bg-white bg-opacity-20"
+              style={glassBackdropStyles}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsCartOpen(false)}
             />
 
-            {/* Modal */}
+            {/* Enhanced Modal Container */}
             <motion.div
-              className="relative rounded-3xl p-8 shadow-2xl max-h-[90vh] overflow-y-auto max-w-2xl w-full mx-auto border-2 bg-white border-gray-200"
+              style={modalContainerStyles}
               initial={{
-                scale: 0.7,
+                scale: 0.8,
                 opacity: 0,
-                rotateX: -15
+                y: 20
               }}
               animate={{
                 scale: 1,
                 opacity: 1,
-                rotateX: 0
+                y: 0
               }}
               exit={{
-                scale: 0.7,
+                scale: 0.8,
                 opacity: 0,
-                rotateX: 15
+                y: 20
               }}
               transition={{
                 type: "spring",
@@ -563,20 +615,7 @@ export default function MenuPage() {
                 stiffness: 300
               }}
             >
-              {/* Close Button with more space */}
-              <motion.button
-                onClick={() => setIsCartOpen(false)}
-                className="absolute top-8 right-8 rounded-full p-2 text-gray-500 bg-gray-100 hover:bg-gray-200 transition-all"
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </motion.button>
-
-              {/* Cart Content */}
-              <div style={cartModalContentStyles}>
+              <div style={modalContentStyles}>
                 <div style={cartHeaderStyles}>
                   <motion.h2
                     style={cartTitleStyles}
@@ -601,9 +640,20 @@ export default function MenuPage() {
                 </div>
 
                 {cart.length === 0 ? (
-                  <p style={emptyCartStyles}>
-                    {language === 'en' ? 'Your cart is empty' : 'سلة التسوق فارغة'}
-                  </p>
+                  <motion.div
+                    style={emptyCartStyles}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ marginBottom: '1rem', opacity: 0.5 }}>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5.5M7 13l2.5 5.5m5.5 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
+                    </svg>
+                    <p>{language === 'en' ? 'No items in your order' : 'لا توجد عناصر في طلبك'}</p>
+                    <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.7 }}>
+                      {language === 'en' ? 'Select your favorite dishes to get started' : 'اختر أطباقك المفضلة لبدء الطلب'}
+                    </p>
+                  </motion.div>
                 ) : (
                   <>
                     <div style={cartItemsContainerStyles}>
@@ -629,7 +679,7 @@ export default function MenuPage() {
                             </div>
                             <div style={cartItemDetailsStyles}>
                               <span style={cartItemPriceStyles}>
-                                {language === 'en' ? 'EGP' : 'ج.م'} {item.price} {language === 'en' ? 'each' : 'للقطعة'}
+                                {language === 'en' ? 'EGP' : 'ج.م'} {item.price.toLocaleString()} {language === 'en' ? 'each' : 'للقطعة'}
                               </span>
                               <div style={cartItemControlsStyles}>
                                 <button
@@ -648,7 +698,7 @@ export default function MenuPage() {
                               </div>
                             </div>
                             <div style={cartItemTotalStyles}>
-                              {language === 'en' ? 'Total' : 'المجموع'}: <strong>{language === 'en' ? 'EGP' : 'ج.م'} {(item.price || 0) * (item.quantity || 0)}</strong>
+                              {language === 'en' ? 'Total' : 'المجموع'}: <strong>{language === 'en' ? 'EGP' : 'ج.م'} {((item.price || 0) * (item.quantity || 0)).toLocaleString()}</strong>
                             </div>
                           </div>
                         </motion.div>
@@ -684,7 +734,7 @@ export default function MenuPage() {
                       <div style={cartTotalStyles}>
                         <span>{language === 'en' ? 'Total:' : 'المجموع الكلي:'}</span>
                         <strong style={cartTotalPriceStyles}>
-                          {language === 'en' ? 'EGP' : 'ج.م'} {getTotalPrice()}
+                          {language === 'en' ? 'EGP' : 'ج.م'} {getTotalPrice().toLocaleString()}
                         </strong>
                       </div>
                     </motion.div>
@@ -692,54 +742,67 @@ export default function MenuPage() {
                     <motion.button
                       onClick={handleWhatsAppOrder}
                       style={checkoutButtonStyles}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '0.5rem' }}>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.18-1.24-6.169-3.495-8.418" />
+                      </svg>
                       {language === 'en' ? 'Send Order via WhatsApp' : 'إرسال الطلب عبر واتساب'}
                     </motion.button>
                   </>
                 )}
+
+                {/* Close Button at Bottom */}
+                <motion.button
+                  onClick={() => setIsCartOpen(false)}
+                  style={modalCloseButtonStyles}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {language === 'en' ? 'Close' : 'إغلاق'}
+                </motion.button>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Item Detail Modal */}
+      {/* Enhanced Item Detail Modal */}
       <AnimatePresence>
         {isItemModalOpen && selectedItem && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={modalOverlayStyles}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Glass-like Backdrop */}
             <motion.div
-              className="absolute inset-0 backdrop-blur-md bg-white bg-opacity-20"
+              style={glassBackdropStyles}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsItemModalOpen(false)}
             />
 
-            {/* Modal */}
+            {/* Enhanced Modal Container */}
             <motion.div
-              className="relative rounded-3xl p-8 shadow-2xl max-h-[90vh] overflow-y-auto max-w-2xl w-full mx-auto border-2 bg-white border-gray-200"
+              style={modalContainerStyles}
               initial={{
-                scale: 0.7,
+                scale: 0.8,
                 opacity: 0,
-                rotateX: -15
+                y: 20
               }}
               animate={{
                 scale: 1,
                 opacity: 1,
-                rotateX: 0
+                y: 0
               }}
               exit={{
-                scale: 0.7,
+                scale: 0.8,
                 opacity: 0,
-                rotateX: 15
+                y: 20
               }}
               transition={{
                 type: "spring",
@@ -747,35 +810,26 @@ export default function MenuPage() {
                 stiffness: 300
               }}
             >
-              {/* Close Button */}
-              <motion.button
-                onClick={() => setIsItemModalOpen(false)}
-                className="absolute top-6 right-6 rounded-full p-2 text-gray-500 bg-gray-100 hover:bg-gray-200 transition-all"
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </motion.button>
-
-              {/* Item Content */}
-              <div className="text-center">
+              <div style={itemModalContentStyles}>
                 {selectedItem.image && (
-                  <motion.img
-                    src={`/images/${selectedCategory}/${selectedItem.image}`}
-                    alt={getText(selectedItem, 'name', language)}
-                    className="w-64 h-64 object-cover rounded-2xl mx-auto mb-6 border-2 border-gray-200"
+                  <motion.div
+                    style={itemModalImageContainerStyles}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
+                  >
+                    <img
+                      src={`/images/${selectedCategory}/${selectedItem.image}`}
+                      alt={getText(selectedItem, 'name', language)}
+                      style={itemModalImageStyles}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </motion.div>
                 )}
                 <motion.h2
-                  className="text-3xl font-bold mb-4 text-gray-900"
+                  style={itemModalTitleStyles}
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
@@ -784,7 +838,7 @@ export default function MenuPage() {
                 </motion.h2>
 
                 <motion.p
-                  className="text-lg mb-6 text-gray-600"
+                  style={itemModalDescriptionStyles}
                   initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -792,7 +846,7 @@ export default function MenuPage() {
                   {getText(selectedItem, 'description', language)}
                 </motion.p>
                 <motion.p
-                  className="text-2xl font-bold mb-6 text-red-500"
+                  style={itemModalPriceStyles}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -806,10 +860,20 @@ export default function MenuPage() {
                     setIsItemModalOpen(false);
                   }}
                   style={addToCartButtonStyles}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {language === 'en' ? 'Add to Cart' : 'أضف إلى السلة'}
+                </motion.button>
+
+                {/* Close Button at Bottom */}
+                <motion.button
+                  onClick={() => setIsItemModalOpen(false)}
+                  style={modalCloseButtonStyles}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {language === 'en' ? 'Close' : 'إغلاق'}
                 </motion.button>
               </div>
             </motion.div>
@@ -822,34 +886,291 @@ export default function MenuPage() {
         <div style={copyrightStyles}>
           © {new Date().getFullYear()} مطبخ جديتي. جميع الحقوق محفوظة.
           <br />
-          <span style={developedByStyles}>Developed by esto</span>
+          <span style={developedByStyles}>Crafted with excellence</span>
         </div>
       </footer>
+
+      {/* Global Styles */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+          --color-primary: #4EA595;
+          --color-secondary: #EB4B36;
+        }
+        
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        
+        html {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          scroll-behavior: smooth;
+        }
+        
+        body {
+          background: #ffffff;
+          color: #000000;
+          line-height: 1.6;
+          font-weight: 400;
+          overflow-x: hidden;
+        }
+        
+        /* Remove all scrollbars */
+        ::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+        
+        * {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+          outline: 2px solid #4EA595;
+          outline-offset: 2px;
+        }
+        
+        /* Selection color */
+        ::selection {
+          background: #4EA595;
+          color: white;
+        }
+      `}</style>
     </Layout>
   );
 }
 
-// ==================== STYLES ====================
+// ==================== UPDATED STYLES ====================
 
+// Modal Styles
+const modalOverlayStyles = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 50,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '1rem'
+};
+
+const glassBackdropStyles = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backdropFilter: 'blur(8px)',
+  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  WebkitBackdropFilter: 'blur(8px)'
+};
+
+const modalContainerStyles = {
+  position: 'relative',
+  borderRadius: '16px',
+  backgroundColor: 'white',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  maxWidth: '500px',
+  width: '100%',
+  maxHeight: '85vh',
+  overflow: 'auto',
+  margin: '0 auto',
+  WebkitOverflowScrolling: 'touch',
+  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)'
+};
+
+const modalContentStyles = {
+  padding: '2rem 1.5rem 1.5rem'
+};
+
+const itemModalContentStyles = {
+  padding: '2.5rem 2rem 2rem',
+  textAlign: 'center'
+};
+
+const itemModalImageContainerStyles = {
+  width: '180px',
+  height: '180px',
+  margin: '0 auto 1.5rem',
+  borderRadius: '16px',
+  overflow: 'hidden'
+};
+
+const itemModalImageStyles = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover'
+};
+
+const itemModalTitleStyles = {
+  fontSize: '1.75rem',
+  fontWeight: 'bold',
+  color: colors.black,
+  margin: '0 0 1rem 0',
+  lineHeight: '1.2'
+};
+
+const itemModalDescriptionStyles = {
+  fontSize: '1rem',
+  color: colors.gray[600],
+  lineHeight: '1.6',
+  margin: '0 0 1.5rem 0'
+};
+
+const itemModalPriceStyles = {
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  color: colors.secondary,
+  margin: '0 0 2rem 0'
+};
+
+// New Proceed Button Styles
+const proceedButtonStyles = {
+  position: 'fixed',
+  bottom: '1rem',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  width: 'calc(100% - 3rem)',
+  maxWidth: '400px',
+  padding: '1rem 1.5rem',
+  backgroundColor: colors.primary,
+  color: colors.white,
+  border: 'none',
+  borderRadius: '12px',
+  fontSize: '1rem',
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  zIndex: 30,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+  fontFamily: 'inherit'
+};
+
+const proceedButtonTextStyles = {
+  fontSize: '1.1rem',
+  fontWeight: '600'
+};
+
+const proceedButtonBadgeStyles = {
+  fontSize: '0.9rem',
+  opacity: 0.9,
+  fontWeight: '500'
+};
+
+// Modal Close Button
+const modalCloseButtonStyles = {
+  width: '100%',
+  padding: '0.875rem 1.5rem',
+  backgroundColor: colors.gray[200],
+  color: colors.gray[700],
+  border: 'none',
+  borderRadius: '12px',
+  fontSize: '1rem',
+  fontWeight: '600',
+  cursor: 'pointer',
+  transition: 'all 0.3s ease',
+  fontFamily: 'inherit',
+  marginTop: '1rem'
+};
+
+// Hero Image Styles
+const heroContainerStyles = {
+  position: 'relative',
+  width: '100%',
+  height: '300px',
+  overflow: 'hidden',
+  marginBottom: '2rem'
+};
+
+const heroImageWrapperStyles = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0
+};
+
+const heroSkeletonStyles = {
+  width: '100%',
+  height: '100%',
+  backgroundColor: colors.gray[200]
+};
+
+const heroImageStyles = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  transition: 'opacity 0.5s ease'
+};
+
+const heroOverlayStyles = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: 'linear-gradient(135deg, rgba(78, 165, 149, 0.3) 0%, rgba(235, 75, 54, 0.2) 100%)'
+};
+
+const heroContentStyles = {
+  textAlign: 'center',
+  color: 'white',
+  maxWidth: '600px',
+  padding: '0 2rem'
+};
+
+const heroTitleStyles = {
+  fontSize: '2.5rem',
+  fontWeight: 'bold',
+  margin: '0 0 1rem 0',
+  textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+  lineHeight: '1.1'
+};
+
+const heroDescriptionStyles = {
+  fontSize: '1.1rem',
+  margin: 0,
+  opacity: 0.9,
+  textShadow: '0 1px 5px rgba(0,0,0,0.3)',
+  lineHeight: '1.4'
+};
+
+// Component Styles
 const languageSwitcherStyles = {
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
-  gap: '0.5rem',
+  gap: '0.25rem',
   backgroundColor: colors.white,
-  padding: '0.75rem',
+  padding: '0.5rem',
   borderRadius: '12px',
   border: `1px solid ${colors.gray[200]}`,
-  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
   margin: '1rem auto',
   width: 'fit-content'
 };
 
 const languageButtonStyles = {
   padding: '0.5rem 1rem',
-  border: `1px solid ${colors.gray[300]}`,
+  border: 'none',
   borderRadius: '8px',
-  backgroundColor: colors.white,
+  backgroundColor: 'transparent',
   color: colors.gray[600],
   fontSize: '0.9rem',
   fontWeight: '600',
@@ -861,41 +1182,42 @@ const languageButtonStyles = {
 const activeLanguageButtonStyles = {
   backgroundColor: colors.primary,
   color: colors.white,
-  border: `1px solid ${colors.primary}`
 };
 
 const searchContainerStyles = {
   display: 'flex',
   gap: '1rem',
-  padding: '1rem',
+  padding: '1.5rem',
   alignItems: 'center',
   flexWrap: 'wrap',
   backgroundColor: colors.white,
-  marginTop: '0' // Removed the extra margin since language switcher is now in normal flow
+  marginTop: '0',
+  justifyContent: 'center'
 };
 
 const searchBarStyles = {
   position: 'relative',
   flex: 1,
-  minWidth: '250px'
+  minWidth: '280px',
+  maxWidth: '400px'
 };
 
 const searchInputStyles = {
   width: '100%',
-  padding: '0.75rem 1rem 0.75rem 2.5rem',
-  border: `2px solid ${colors.gray[200]}`,
+  padding: '0.875rem 1rem 0.875rem 3rem',
+  border: `1px solid ${colors.gray[300]}`,
   borderRadius: '12px',
   fontSize: '1rem',
   outline: 'none',
   transition: 'all 0.3s ease',
-  backgroundColor: colors.white,
+  backgroundColor: colors.gray[50],
   fontFamily: 'inherit',
   color: colors.gray[800],
 };
 
 const searchIconStyles = {
   position: 'absolute',
-  left: '0.75rem',
+  left: '1rem',
   top: '50%',
   transform: 'translateY(-50%)',
   width: '1.25rem',
@@ -906,17 +1228,17 @@ const searchIconStyles = {
 const customDropdownStyles = {
   position: 'relative',
   display: 'inline-block',
-  minWidth: '180px'
+  minWidth: '200px'
 };
 
 const customSelectStyles = {
   width: '100%',
-  padding: '0.75rem 2.5rem 0.75rem 1rem',
-  border: `2px solid ${colors.gray[200]}`,
+  padding: '0.875rem 2.5rem 0.875rem 1rem',
+  border: `1px solid ${colors.gray[300]}`,
   borderRadius: '12px',
   fontSize: '0.9rem',
   outline: 'none',
-  backgroundColor: colors.white,
+  backgroundColor: colors.gray[50],
   appearance: 'none',
   cursor: 'pointer',
   fontFamily: 'inherit',
@@ -939,44 +1261,26 @@ const stickyContainerStyles = {
   top: 0,
   zIndex: 40,
   backgroundColor: colors.white,
-  padding: '1rem 0',
+  padding: '1rem 1.5rem',
   transition: 'all 0.3s ease',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.5rem',
   borderBottom: `1px solid ${colors.gray[200]}`
-};
-
-const scrollButtonStyles = {
-  padding: '0.5rem',
-  border: `2px solid ${colors.gray[200]}`,
-  borderRadius: '50%',
-  backgroundColor: colors.white,
-  cursor: 'pointer',
-  fontSize: '1.25rem',
-  fontWeight: 'bold',
-  color: colors.gray[700],
-  width: '2.5rem',
-  height: '2.5rem',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexShrink: 0,
-  transition: 'all 0.3s ease',
 };
 
 const categoryListStyles = {
   display: 'flex',
-  gap: '0.5rem',
+  gap: '0.75rem',
   overflowX: 'auto',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',
   flex: 1,
+  userSelect: 'none',
+  WebkitUserSelect: 'none',
+  padding: '0.5rem 0'
 };
 
 const categoryButtonStyles = {
   padding: '0.75rem 1.5rem',
-  border: `2px solid ${colors.gray[200]}`,
+  border: `1px solid ${colors.gray[300]}`,
   borderRadius: '25px',
   cursor: 'pointer',
   fontSize: '0.9rem',
@@ -986,25 +1290,26 @@ const categoryButtonStyles = {
   flexShrink: 0,
   backgroundColor: colors.white,
   fontFamily: 'inherit',
-  color: colors.gray[700]
+  color: colors.gray[700],
 };
 
 const selectedCategoryStyle = {
   backgroundColor: colors.primary,
   color: colors.white,
-  border: `2px solid ${colors.primary}`,
+  border: `1px solid ${colors.primary}`,
   fontWeight: '700'
 };
 
 const contentStyles = {
-  padding: '0 1rem 1rem 1rem',
-  backgroundColor: colors.gray[50]
+  padding: '0 1.5rem 2rem 1.5rem',
+  backgroundColor: colors.white,
+  minHeight: '60vh'
 };
 
 const gridStyles = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-  gap: '1.5rem',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+  gap: '2rem',
   padding: '1rem 0'
 };
 
@@ -1014,7 +1319,6 @@ const gridItemStyles = {
   borderRadius: '16px',
   transition: 'all 0.3s ease',
   backgroundColor: colors.white,
-  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'column',
@@ -1038,8 +1342,7 @@ const skeletonStyles = {
   width: '100%',
   height: '100%',
   backgroundColor: colors.gray[200],
-  borderRadius: '12px',
-  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+  borderRadius: '12px'
 };
 
 const imageStyles = {
@@ -1059,21 +1362,22 @@ const titleContainerStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
-  marginBottom: '0.5rem'
+  marginBottom: '0.75rem'
 };
 
 const itemNameStyles = {
-  fontSize: '1.125rem',
+  fontSize: '1.1rem',
   fontWeight: 'bold',
-  color: colors.gray[900],
+  color: colors.black,
   margin: 0,
-  marginBottom: '0.5rem'
+  marginBottom: '0.5rem',
+  lineHeight: '1.4'
 };
 
 const itemDescriptionStyles = {
-  fontSize: '0.875rem',
+  fontSize: '0.9rem',
   color: colors.gray[600],
-  lineHeight: '1.4',
+  lineHeight: '1.5',
   margin: 0,
   marginBottom: '1rem'
 };
@@ -1083,11 +1387,12 @@ const priceCartContainerStyles = {
   justifyContent: 'space-between',
   alignItems: 'center',
   marginTop: 'auto',
-  paddingTop: '1rem'
+  paddingTop: '1rem',
+  borderTop: `1px solid ${colors.gray[200]}`
 };
 
 const priceStyles = {
-  fontSize: '1.125rem',
+  fontSize: '1rem',
   fontWeight: 'bold',
   color: colors.secondary,
   margin: 0
@@ -1098,7 +1403,7 @@ const quantitySelectorStyles = {
   alignItems: 'center',
   gap: '0.5rem',
   backgroundColor: colors.gray[100],
-  borderRadius: '25px',
+  borderRadius: '20px',
   padding: '0.25rem'
 };
 
@@ -1114,8 +1419,6 @@ const quantityButtonStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-  transition: 'all 0.2s ease',
   color: colors.gray[700],
 };
 
@@ -1129,90 +1432,33 @@ const quantityDisplayStyles = {
 
 const noResultsStyles = {
   textAlign: 'center',
-  padding: '3rem',
+  padding: '4rem 2rem',
   color: colors.gray[500],
   fontSize: '1.1rem'
-};
-
-const floatingCartButtonStyles = {
-  position: 'fixed',
-  bottom: '1.5rem',
-  left: '1.5rem',
-  width: '60px',
-  height: '60px',
-  borderRadius: '50%',
-  backgroundColor: colors.primary,
-  color: colors.white,
-  border: 'none',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: `0 4px 20px rgba(78, 165, 149, 0.4)`,
-  zIndex: 30
-};
-
-const floatingWhatsAppButtonStyles = {
-  position: 'fixed',
-  bottom: '1.5rem',
-  right: '1.5rem',
-  width: '60px',
-  height: '60px',
-  borderRadius: '50%',
-  backgroundColor: '#25D366',
-  color: colors.white,
-  border: 'none',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
-  zIndex: 30
-};
-
-const cartBadgeStyles = {
-  position: 'absolute',
-  top: '-5px',
-  right: '-5px',
-  backgroundColor: colors.secondary,
-  color: colors.white,
-  borderRadius: '50%',
-  width: '20px',
-  height: '20px',
-  fontSize: '0.75rem',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontWeight: 'bold'
-};
-
-const cartModalContentStyles = {
-  padding: '0 0.5rem'
 };
 
 const cartHeaderStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: '2rem',
+  marginBottom: '1.5rem',
   paddingBottom: '1rem',
-  borderBottom: `2px solid ${colors.gray[200]}`,
-  paddingRight: '3rem'
+  borderBottom: `2px solid ${colors.gray[200]}`
 };
 
 const cartTitleStyles = {
   fontSize: '1.5rem',
   fontWeight: 'bold',
-  color: colors.gray[900],
+  color: colors.black,
   margin: 0
 };
 
 const clearCartButtonStyles = {
   padding: '0.5rem 1rem',
-  border: `1px solid ${colors.secondary}`,
+  border: `1px solid ${colors.gray[400]}`,
   borderRadius: '20px',
   backgroundColor: 'transparent',
-  color: colors.secondary,
+  color: colors.gray[600],
   fontSize: '0.8rem',
   fontWeight: '600',
   cursor: 'pointer',
@@ -1224,7 +1470,11 @@ const emptyCartStyles = {
   textAlign: 'center',
   color: colors.gray[500],
   fontSize: '1.1rem',
-  padding: '2rem'
+  padding: '3rem 2rem',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center'
 };
 
 const cartItemsContainerStyles = {
@@ -1250,13 +1500,13 @@ const cartItemHeaderStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
-  marginBottom: '0.75rem'
+  marginBottom: '1rem'
 };
 
 const cartItemNameStyles = {
   fontWeight: '600',
-  fontSize: '1.1rem',
-  color: colors.gray[900],
+  fontSize: '1rem',
+  color: colors.black,
   margin: 0,
   flex: 1,
   textAlign: 'left'
@@ -1282,7 +1532,7 @@ const cartItemDetailsStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: '0.75rem'
+  marginBottom: '1rem'
 };
 
 const cartItemPriceStyles = {
@@ -1293,7 +1543,7 @@ const cartItemPriceStyles = {
 const cartItemControlsStyles = {
   display: 'flex',
   alignItems: 'center',
-  gap: '0.75rem',
+  gap: '0.5rem',
   backgroundColor: colors.white,
   borderRadius: '20px',
   padding: '0.25rem'
@@ -1307,7 +1557,7 @@ const cartQuantityButtonStyles = {
   backgroundColor: colors.gray[100],
   color: colors.gray[700],
   cursor: 'pointer',
-  fontSize: '1.1rem',
+  fontSize: '1rem',
   fontWeight: 'bold',
   display: 'flex',
   alignItems: 'center',
@@ -1320,13 +1570,13 @@ const cartQuantityStyles = {
   textAlign: 'center',
   fontWeight: '600',
   fontSize: '1rem',
-  color: colors.gray[800]
+  color: colors.black
 };
 
 const cartItemTotalStyles = {
   textAlign: 'left',
   fontWeight: '600',
-  color: colors.gray[900],
+  color: colors.black,
   fontSize: '1rem',
   paddingTop: '0.5rem',
   borderTop: `1px solid ${colors.gray[200]}`
@@ -1341,21 +1591,21 @@ const orderNotesLabelStyles = {
   display: 'block',
   fontWeight: '600',
   marginBottom: '0.5rem',
-  color: colors.gray[900],
+  color: colors.black,
   fontSize: '1rem'
 };
 
 const orderNotesInputStyles = {
   width: '100%',
   padding: '0.75rem',
-  border: `2px solid ${colors.gray[200]}`,
+  border: `1px solid ${colors.gray[300]}`,
   borderRadius: '12px',
   fontSize: '0.9rem',
   outline: 'none',
   resize: 'vertical',
   fontFamily: 'inherit',
   transition: 'all 0.3s ease',
-  backgroundColor: colors.white,
+  backgroundColor: colors.gray[50],
   color: colors.gray[800],
 };
 
@@ -1371,7 +1621,7 @@ const cartTotalStyles = {
   alignItems: 'center',
   fontSize: '1.25rem',
   fontWeight: '600',
-  color: colors.gray[900]
+  color: colors.black
 };
 
 const cartTotalPriceStyles = {
@@ -1386,14 +1636,18 @@ const checkoutButtonStyles = {
   color: colors.white,
   border: 'none',
   borderRadius: '12px',
-  fontSize: '1.1rem',
+  fontSize: '1rem',
   fontWeight: 'bold',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
   fontFamily: 'inherit',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 };
 
 const addToCartButtonStyles = {
+  width: '100%',
   padding: '1rem 2rem',
   backgroundColor: colors.primary,
   color: colors.white,
@@ -1407,8 +1661,8 @@ const addToCartButtonStyles = {
 };
 
 const footerStyles = {
-  padding: '3rem 1rem 8rem 1rem',
-  marginTop: '2rem',
+  padding: '3rem 1.5rem 8rem 1.5rem',
+  marginTop: '3rem',
   backgroundColor: colors.white,
   borderTop: `1px solid ${colors.gray[200]}`
 };

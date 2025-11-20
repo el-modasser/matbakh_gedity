@@ -177,10 +177,10 @@ body {
     margin-bottom: 1rem !important;
   }
 
-  header>div:first-child img {
+  /* header>div:first-child img {
     width: 215px !important;
     height: auto !important;
-  }
+  } */
 
   header>nav {
     justify-content: flex-start !important;
