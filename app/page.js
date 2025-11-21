@@ -80,7 +80,7 @@ export default function MenuPage() {
   const [visibleItems, setVisibleItems] = useState(8);
   const [imageLoadStates, setImageLoadStates] = useState({});
   const [language, setLanguage] = useState('ar');
-  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+  const [heroImagesLoaded, setHeroImagesLoaded] = useState({});
 
   const categoriesRef = useRef(null);
   const categoryScrollRef = useRef(null);
@@ -93,10 +93,33 @@ export default function MenuPage() {
     document.documentElement.lang = language;
   }, [language]);
 
-  // Reset hero image load state when category changes
+  // Preload all hero images on component mount
   useEffect(() => {
-    setHeroImageLoaded(false);
-  }, [selectedCategory]);
+    const preloadAllHeroImages = () => {
+      Object.keys(menuData).forEach(categoryId => {
+        const categoryData = menuData[categoryId];
+        const heroImage = categoryData?.heroImage || 'trays.png';
+        const imageSrc = `/images/hero/${heroImage}`;
+
+        const img = new Image();
+        img.src = imageSrc;
+        img.onload = () => {
+          setHeroImagesLoaded(prev => ({
+            ...prev,
+            [categoryId]: true
+          }));
+        };
+        img.onerror = () => {
+          setHeroImagesLoaded(prev => ({
+            ...prev,
+            [categoryId]: true
+          }));
+        };
+      });
+    };
+
+    preloadAllHeroImages();
+  }, []);
 
   // Sticky navigation effect
   useEffect(() => {
@@ -290,10 +313,6 @@ export default function MenuPage() {
     setImageLoadStates(prev => ({ ...prev, [itemName]: true }));
   };
 
-  const handleHeroImageLoad = () => {
-    setHeroImageLoaded(true);
-  };
-
   const cardVariants = {
     hidden: {
       y: 20,
@@ -311,6 +330,16 @@ export default function MenuPage() {
       }
     }
   };
+
+  // Get hero image source
+  const getHeroImageSrc = () => {
+    const categoryData = menuData[selectedCategory];
+    const heroImage = categoryData?.heroImage || 'trays.png';
+    return `/images/hero/${heroImage}`;
+  };
+
+  // Check if current hero image is loaded
+  const isCurrentHeroLoaded = heroImagesLoaded[selectedCategory];
 
   return (
     <Layout>
@@ -401,43 +430,37 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Dynamic Category Hero Image */}
+      {/* SIMPLE HERO SECTION - NO FLICKERING */}
       <motion.div
         style={heroContainerStyles}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.5 }}
         key={selectedCategory}
       >
         <div style={heroImageWrapperStyles}>
-          {!heroImageLoaded && <div style={heroSkeletonStyles}></div>}
-          <img
-            src={`/images/hero/${menuData[selectedCategory]?.heroImage || 'default-hero.jpg'}`}
+          {/* Always show the image - let browser handle caching */}
+          <motion.img
+            src={getHeroImageSrc()}
             alt={getText(menuData[selectedCategory], 'name', language)}
-            style={{
-              ...heroImageStyles,
-              opacity: heroImageLoaded ? 1 : 0
-            }}
-            onLoad={handleHeroImageLoad}
+            style={heroImageStyles}
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             onError={(e) => {
-              e.target.style.display = 'none';
-              setHeroImageLoaded(true);
+              // If image fails, it will just show the background color
+              console.error('Hero image failed to load:', getHeroImageSrc());
             }}
           />
         </div>
         <div style={heroOverlayStyles}>
           <motion.div
             style={heroContentStyles}
-            initial={{ y: 40, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
           >
-            <h1 style={heroTitleStyles}>
-              {getText(menuData[selectedCategory], 'name', language)}
-            </h1>
-            <p style={heroDescriptionStyles}>
-              {getText(menuData[selectedCategory], 'description', language)}
-            </p>
+
           </motion.div>
         </div>
       </motion.div>
@@ -560,8 +583,8 @@ export default function MenuPage() {
         <motion.button
           onClick={() => setIsCartOpen(true)}
           style={proceedButtonStyles}
-          // whileHover={{ scale: 1.02 }}
-          // whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           className="proceed-order-btn"
         >
           <span style={proceedButtonTextStyles}>
@@ -950,7 +973,7 @@ export default function MenuPage() {
   );
 }
 
-// ==================== UPDATED STYLES ====================
+// ==================== STYLES ====================
 
 // Modal Styles
 const modalOverlayStyles = {
@@ -1087,7 +1110,7 @@ const modalCloseButtonStyles = {
   marginTop: '1rem'
 };
 
-// Hero Image Styles
+// Hero Image Styles - SIMPLIFIED
 const heroContainerStyles = {
   position: 'relative',
   width: '100%',
@@ -1101,20 +1124,14 @@ const heroImageWrapperStyles = {
   top: 0,
   left: 0,
   right: 0,
-  bottom: 0
-};
-
-const heroSkeletonStyles = {
-  width: '100%',
-  height: '100%',
-  backgroundColor: colors.gray[200]
+  bottom: 0,
+  backgroundColor: colors.gray[100] // Fallback background
 };
 
 const heroImageStyles = {
   width: '100%',
   height: '100%',
-  objectFit: 'cover',
-  transition: 'opacity 0.5s ease'
+  objectFit: 'cover'
 };
 
 const heroOverlayStyles = {
