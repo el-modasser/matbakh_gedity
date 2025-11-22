@@ -280,7 +280,7 @@ export default function MenuPage() {
 
   // WhatsApp order function
   const handleWhatsAppOrder = () => {
-    const whatsappNumber = "+201000000000";
+    const whatsappNumber = "+201035087703";
     let message = language === 'en'
       ? "Hello! I'd like to place an order from Matbakh Gedity.\n\n"
       : "مرحباً! أود تقديم طلب من مطبخ جديتي.\n\n";

@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     "image": "https://matbakhgedity.com/logo.svg",
     "@id": "https://matbakhgedity.com",
     "url": "https://matbakhgedity.com",
-    "telephone": "+201234567890",
+    "telephone": "+201035087703",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Cairo",
@@ -54,7 +54,7 @@ export default function Layout({ children }) {
       <br />
       <br />
       <br />
-      <header className="bg-[#f1f1f153] border-b border-gray-100">
+      <header className="bg-[#f1f1f100] border-b border-gray-100">
         <div className="w-full py-4 px-6">
           <div className="flex justify-center items-center">
             {/* Centered logo */}
@@ -65,6 +65,9 @@ export default function Layout({ children }) {
                 width={360}
                 height={52}
                 className="h-auto object-contain"
+                style={{
+                  filter: 'brightness(1.05) contrast(1.1) saturate(1.05)'
+                }}
                 priority
                 quality={100}
                 onError={(e) => {
