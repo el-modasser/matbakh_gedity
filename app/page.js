@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Layout from '@/components/Layout';
 import menuData from '@/data/menu.json';
 import { motion, AnimatePresence } from 'framer-motion';
+import { transform } from 'typescript';
 
 // Language configuration
 const languages = {
@@ -1171,7 +1172,10 @@ const heroDescriptionStyles = {
 
 // Component Styles
 const languageSwitcherStyles = {
-  position: 'relative',
+  position: 'absolute',
+  top: '0rem',
+  right: '0rem',
+  transform: 'translateX(-1rem)',
   display: 'flex',
   justifyContent: 'center',
   gap: '0.25rem',
@@ -1179,8 +1183,8 @@ const languageSwitcherStyles = {
   padding: '0.5rem',
   borderRadius: '12px',
   border: `1px solid ${colors.gray[200]}`,
-  margin: '1rem auto',
-  width: 'fit-content'
+  margin: '0.5rem auto',
+  width: 'fit-content',
 };
 
 const languageButtonStyles = {

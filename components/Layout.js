@@ -51,6 +51,9 @@ export default function Layout({ children }) {
       />
 
       {/* Clean Static Header */}
+      <br />
+      <br />
+      <br />
       <header className="bg-[#f1f1f153] border-b border-gray-100">
         <div className="w-full py-4 px-6">
           <div className="flex justify-center items-center">
