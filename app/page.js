@@ -77,7 +77,7 @@ export default function MenuPage() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [orderNotes, setOrderNotes] = useState('');
-  const [visibleItems, setVisibleItems] = useState(8);
+  const [visibleItems, setVisibleItems] = useState(1000);
   const [imageLoadStates, setImageLoadStates] = useState({});
   const [language, setLanguage] = useState('ar');
   const [heroImagesLoaded, setHeroImagesLoaded] = useState({});
@@ -136,7 +136,7 @@ export default function MenuPage() {
 
   // Reset visible items when category or search changes
   useEffect(() => {
-    setVisibleItems(8);
+    setVisibleItems(1000);
   }, [selectedCategory, searchQuery]);
 
   // Close modals on escape key

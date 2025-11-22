@@ -51,15 +51,15 @@ export default function Layout({ children }) {
       />
 
       {/* Clean Static Header */}
-      <header className="bg-white border-b border-gray-100">
+      <header className="bg-[#f1f1f153] border-b border-gray-100">
         <div className="w-full py-4 px-6">
           <div className="flex justify-center items-center">
             {/* Centered logo */}
             <div className="py-1">
               <Image
-                src="/logo.svg"
+                src="/logo.gif"
                 alt="Matbakh Gedity - Authentic Egyptian Cuisine"
-                width={160}
+                width={360}
                 height={52}
                 className="h-auto object-contain"
                 priority
