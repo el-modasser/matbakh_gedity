@@ -584,8 +584,6 @@ export default function MenuPage() {
         <motion.button
           onClick={() => setIsCartOpen(true)}
           style={proceedButtonStyles}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
           className="proceed-order-btn"
         >
           <span style={proceedButtonTextStyles}>
