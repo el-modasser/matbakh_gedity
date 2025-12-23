@@ -63,7 +63,7 @@
     ]
   },
   "seyamy": {
-    "heroImage": "seyamy.png", // You would need to create or assign an appropriate image
+    "heroImage": "seyamy.png",
     "name": "Seyamy Meals",
     "name_ar": "أكلات صيامي",
     "items": [
