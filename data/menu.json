@@ -62,133 +62,6 @@
       }
     ]
   },
-  "seyamy": {
-    "heroImage": "seyamy.png",
-    "name": "Seyamy Meals",
-    "name_ar": "أكلات صيامي",
-    "items": [
-      {
-        "name": "Plain Molokhiyah Casserole (Seyamy)",
-        "name_ar": "طاجن ملوخية سادة (صيامي)",
-        "description": "Molokhiyah cooked without meat or animal broth.",
-        "description_ar": "ملوخية مطبوخة بدون لحمة أو مرق حيواني.",
-        "price": 62,
-        "image": ""
-      },
-      {
-        "name": "Plain Vegetable Casserole (Seyamy)",
-        "name_ar": "طاجن خضار سادة (صيامي)",
-        "description": "Vegetable casserole cooked without meat or animal broth.",
-        "description_ar": "طاجن خضار مطبوخ بدون لحمة أو مرق حيواني.",
-        "price": 56,
-        "image": ""
-      },
-      {
-        "name": "Mixed Stuffed Vegetables (Seyamy)",
-        "name_ar": "محشي مشكل (صيامي)",
-        "description": "Half kilogram mixed assortment of vegetables stuffed with rice, herbs, and spices (cooked in oil, not meat broth).",
-        "description_ar": "نص كيلو تشكيلة متنوعة من الخضروات محشية بالأرز والبهارات (مطهوة بالزيت، بدون مرق لحمة).",
-        "price": 150,
-        "image": ""
-      },
-      {
-        "name": "Stuffed Vine Leaves (Seyamy)",
-        "name_ar": "ورق عنب (صيامي)",
-        "description": "Half kilogram of vine leaves stuffed with rice and herbs (cooked in oil, not meat broth).",
-        "description_ar": "نص كيلو ورق عنب محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
-        "price": 140,
-        "image": ""
-      },
-      {
-        "name": "Stuffed Peppers (Seyamy)",
-        "name_ar": "فلفل (صيامي)",
-        "description": "Half kilogram of stuffed bell peppers with rice and herbs (cooked in oil, not meat broth).",
-        "description_ar": "نص كيلو فلفل محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
-        "price": 150,
-        "image": ""
-      },
-      {
-        "name": "Stuffed Zucchini (Seyamy)",
-        "name_ar": "كوسة (صيامي)",
-        "description": "Half kilogram of stuffed zucchini with rice and herbs (cooked in oil, not meat broth).",
-        "description_ar": "نص كيلو كوسة محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
-        "price": 150,
-        "image": ""
-      },
-      {
-        "name": "Baba Ghanoush",
-        "name_ar": "بابا غنوج",
-        "description": "",
-        "description_ar": "",
-        "price": 29,
-        "image": ""
-      },
-      {
-        "name": "Green Salad",
-        "name_ar": "سلطة خضراء",
-        "description": "",
-        "description_ar": "",
-        "price": 23,
-        "image": ""
-      },
-      {
-        "name": "Pickles (Torshi)",
-        "name_ar": "طرشي",
-        "description": "",
-        "description_ar": "",
-        "price": 18,
-        "image": ""
-      },
-      {
-        "name": "Pickled Eggplant",
-        "name_ar": "باذنجان مخلل",
-        "description": "",
-        "description_ar": "",
-        "price": 29,
-        "image": ""
-      },
-      {
-        "name": "Pickled Tomatoes",
-        "name_ar": "طماطم مخللة",
-        "description": "",
-        "description_ar": "",
-        "price": 23,
-        "image": ""
-      },
-      {
-        "name": "Rice with Vermicelli (plain)",
-        "name_ar": "أرز شعرية سادة",
-        "description": "",
-        "description_ar": "",
-        "price": 40,
-        "image": ""
-      },
-      {
-        "name": "Basmati Rice",
-        "name_ar": "أرز بسمتي",
-        "description": "",
-        "description_ar": "",
-        "price": 56,
-        "image": ""
-      },
-      {
-        "name": "Orzo Soup (Seyamy)",
-        "name_ar": "شوربة لسان عصفور (صيامي)",
-        "description": "Prepared with vegetable broth.",
-        "description_ar": "معدة بمرق خضار.",
-        "price": 29,
-        "image": ""
-      },
-      {
-        "name": "Pasta with Sauce (Seyamy)",
-        "name_ar": "مكرونة صلصة (صيامي)",
-        "description": "Pasta with tomato sauce, no meat.",
-        "description_ar": "مكرونة بصلصة طماطم، بدون لحمة.",
-        "price": 45,
-        "image": ""
-      }
-    ]
-  },
   "mahashi": {
     "heroImage": "mahashi.png",
     "name": "Stuffed Vegetables",
@@ -1033,6 +906,30 @@
     "name_ar": "حلويات مطبخ جدتي",
     "items": [
       {
+        "name": "Kahk",
+        "name_ar": "كحك",
+        "description": "Egyptian kahk – 1/2 kg",
+        "description_ar": "كحك مصري – نصف كيلو",
+        "price": 300,
+        "image": ""
+      },
+      {
+        "name": "Qaraqeesh",
+        "name_ar": "قراقيش",
+        "description": "Egyptian qaraqeesh – 1/2 kg",
+        "description_ar": "قراقيش مصرية – نصف كيلو",
+        "price": 300,
+        "image": ""
+      },
+      {
+        "name": "Biscuits",
+        "name_ar": "بسكويت",
+        "description": "Egyptian biscuits – 1/2 kg",
+        "description_ar": "بسكويت مصري – نصف كيلو",
+        "price": 300,
+        "image": ""
+      },
+      {
         "name": "Plain Rice Pudding",
         "name_ar": "أرز باللبن",
         "description": "",
@@ -1077,6 +974,133 @@
         "description": "",
         "description_ar": "",
         "price": 29,
+        "image": ""
+      }
+    ]
+  },
+  "seyamy": {
+    "heroImage": "seyamy.png",
+    "name": "Seyamy Meals",
+    "name_ar": "أكلات صيامي",
+    "items": [
+      {
+        "name": "Plain Molokhiyah Casserole (Seyamy)",
+        "name_ar": "طاجن ملوخية سادة (صيامي)",
+        "description": "Molokhiyah cooked without meat or animal broth.",
+        "description_ar": "ملوخية مطبوخة بدون لحمة أو مرق حيواني.",
+        "price": 62,
+        "image": ""
+      },
+      {
+        "name": "Plain Vegetable Casserole (Seyamy)",
+        "name_ar": "طاجن خضار سادة (صيامي)",
+        "description": "Vegetable casserole cooked without meat or animal broth.",
+        "description_ar": "طاجن خضار مطبوخ بدون لحمة أو مرق حيواني.",
+        "price": 56,
+        "image": ""
+      },
+      {
+        "name": "Mixed Stuffed Vegetables (Seyamy)",
+        "name_ar": "محشي مشكل (صيامي)",
+        "description": "Half kilogram mixed assortment of vegetables stuffed with rice, herbs, and spices (cooked in oil, not meat broth).",
+        "description_ar": "نص كيلو تشكيلة متنوعة من الخضروات محشية بالأرز والبهارات (مطهوة بالزيت، بدون مرق لحمة).",
+        "price": 150,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Vine Leaves (Seyamy)",
+        "name_ar": "ورق عنب (صيامي)",
+        "description": "Half kilogram of vine leaves stuffed with rice and herbs (cooked in oil, not meat broth).",
+        "description_ar": "نص كيلو ورق عنب محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
+        "price": 140,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Peppers (Seyamy)",
+        "name_ar": "فلفل (صيامي)",
+        "description": "Half kilogram of stuffed bell peppers with rice and herbs (cooked in oil, not meat broth).",
+        "description_ar": "نص كيلو فلفل محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
+        "price": 150,
+        "image": ""
+      },
+      {
+        "name": "Stuffed Zucchini (Seyamy)",
+        "name_ar": "كوسة (صيامي)",
+        "description": "Half kilogram of stuffed zucchini with rice and herbs (cooked in oil, not meat broth).",
+        "description_ar": "نص كيلو كوسة محشي بالأرز والبهارات (مطهو بالزيت، بدون مرق لحمة).",
+        "price": 150,
+        "image": ""
+      },
+      {
+        "name": "Baba Ghanoush",
+        "name_ar": "بابا غنوج",
+        "description": "",
+        "description_ar": "",
+        "price": 29,
+        "image": ""
+      },
+      {
+        "name": "Green Salad",
+        "name_ar": "سلطة خضراء",
+        "description": "",
+        "description_ar": "",
+        "price": 23,
+        "image": ""
+      },
+      {
+        "name": "Pickles (Torshi)",
+        "name_ar": "طرشي",
+        "description": "",
+        "description_ar": "",
+        "price": 18,
+        "image": ""
+      },
+      {
+        "name": "Pickled Eggplant",
+        "name_ar": "باذنجان مخلل",
+        "description": "",
+        "description_ar": "",
+        "price": 29,
+        "image": ""
+      },
+      {
+        "name": "Pickled Tomatoes",
+        "name_ar": "طماطم مخللة",
+        "description": "",
+        "description_ar": "",
+        "price": 23,
+        "image": ""
+      },
+      {
+        "name": "Rice with Vermicelli (plain)",
+        "name_ar": "أرز شعرية سادة",
+        "description": "",
+        "description_ar": "",
+        "price": 40,
+        "image": ""
+      },
+      {
+        "name": "Basmati Rice",
+        "name_ar": "أرز بسمتي",
+        "description": "",
+        "description_ar": "",
+        "price": 56,
+        "image": ""
+      },
+      {
+        "name": "Orzo Soup (Seyamy)",
+        "name_ar": "شوربة لسان عصفور (صيامي)",
+        "description": "Prepared with vegetable broth.",
+        "description_ar": "معدة بمرق خضار.",
+        "price": 29,
+        "image": ""
+      },
+      {
+        "name": "Pasta with Sauce (Seyamy)",
+        "name_ar": "مكرونة صلصة (صيامي)",
+        "description": "Pasta with tomato sauce, no meat.",
+        "description_ar": "مكرونة بصلصة طماطم، بدون لحمة.",
+        "price": 45,
         "image": ""
       }
     ]
