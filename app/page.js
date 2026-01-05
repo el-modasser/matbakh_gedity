@@ -1309,7 +1309,7 @@ const categoryButtonStyles = {
   flexShrink: 0,
   backgroundColor: colors.white,
   fontFamily: 'inherit',
-  color: colors.gray[700],
+  color: colors.primary,
 };
 
 const selectedCategoryStyle = {
@@ -1387,7 +1387,7 @@ const titleContainerStyles = {
 const itemNameStyles = {
   fontSize: '1.1rem',
   fontWeight: 'bold',
-  color: colors.black,
+  color: colors.primary,
   margin: 0,
   marginBottom: '0.5rem',
   lineHeight: '1.4'
