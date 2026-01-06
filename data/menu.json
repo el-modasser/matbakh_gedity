@@ -9,7 +9,7 @@
         "name_ar": "صينية مطبخ جدتي",
         "description": "Far'kha sheesh, 1 kilo kofta, one third tarb, quarter mombar, basmati rice",
         "description_ar": "فرخة شيش، كيلو كفتة، تلت طرب، ربع ممبار، رز بسمتي",
-        "price": 1167,
+        "price": 1170,
         "image": ""
       },
       {
@@ -17,7 +17,7 @@
         "name_ar": "صينية العائلة الكبيرة",
         "description": "Mawza, 1 kilo kofta, half kabab, half sog2, 1 kilo mombar, 2 hamam, mulukhya, basmati rice",
         "description_ar": "موزة، كيلو كفتة، نص كباب، نص سجق، كيلو ممبار، ٢ حمام، ملوخية، رز بسمتي",
-        "price": 2382,
+        "price": 2390,
         "image": ""
       },
       {
@@ -33,7 +33,7 @@
         "name_ar": "صينية البيت",
         "description": "Far'kha sheesh, half kofta, half mombar, quarter sog2, mulukhya, basmati rice",
         "description_ar": "فرخة شيش، نص كفتة، نص ممبار، ربع سجق، ملوخية، رز بسمتي",
-        "price": 1056,
+        "price": 1060,
         "image": ""
       },
       {
@@ -41,7 +41,7 @@
         "name_ar": "صينية الأكيلة",
         "description": "1 kilo kofta, quarter tarb, half sheesh tawook, tagin kabab hala, bamya bel la7ma, 2 hawawshi, basmati rice",
         "description_ar": "كيلو كفتة، ربع طرب، نص شيش طاووق، طاجن كباب حلة، بامية باللحمة، ٢ حواوشي، رز بسمتي",
-        "price": 1443,
+        "price": 1440,
         "image": ""
       },
       {
@@ -57,7 +57,7 @@
         "name_ar": "صينية اللمة",
         "description": "Quarter tarb, quarter sog2, half sheesh tawook, half kofta, half mombar, mulukhya, 2 hawawshi, 2 mahshi, basmati rice",
         "description_ar": "ربع طرب، ربع سجق، نص شيش طاووق، نص كفتة، نص ممبار، ملوخية، ٢ حواوشي، ٢ محشي، رز بسمتي",
-        "price": 1333,
+        "price": 1350,
         "image": ""
       }
     ]
@@ -119,7 +119,7 @@
         "name_ar": "طاجن بامية لحمة",
         "description": "",
         "description_ar": "",
-        "price": 239,
+        "price": 240,
         "image": ""
       },
       {
@@ -127,7 +127,7 @@
         "name_ar": "طاجن بطاطس لحمة",
         "description": "",
         "description_ar": "",
-        "price": 239,
+        "price": 240,
         "image": ""
       },
       {
@@ -143,7 +143,7 @@
         "name_ar": "طاجن ملوخية لحمة",
         "description": "",
         "description_ar": "",
-        "price": 216,
+        "price": 220,
         "image": ""
       },
       {
@@ -159,7 +159,7 @@
         "name_ar": "طاجن ملوخية سادة",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -167,7 +167,7 @@
         "name_ar": "طاجن عكاوي",
         "description": "",
         "description_ar": "",
-        "price": 283,
+        "price": 280,
         "image": ""
       },
       {
@@ -175,7 +175,15 @@
         "name_ar": "طاجن حمام بالفريك",
         "description": "",
         "description_ar": "",
-        "price": 228,
+        "price": 230,
+        "image": ""
+      },
+      {
+        "name": "Pigeon & Rice Casserole",
+        "name_ar": "طاجن حمام بالرز",
+        "description": "",
+        "description_ar": "",
+        "price": 230,
         "image": ""
       },
       {
@@ -183,7 +191,7 @@
         "name_ar": "طاجن خضار سادة",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -191,7 +199,7 @@
         "name_ar": "طاجن ورق عنب بالكوارع",
         "description": "",
         "description_ar": "",
-        "price": 283,
+        "price": 285,
         "image": ""
       },
       {
@@ -215,7 +223,7 @@
         "name_ar": "ورقة فراخ",
         "description": "",
         "description_ar": "",
-        "price": 216,
+        "price": 220,
         "image": ""
       },
       {
@@ -223,7 +231,7 @@
         "name_ar": "ورقة كبدة",
         "description": "",
         "description_ar": "",
-        "price": 172,
+        "price": 175,
         "image": ""
       }
     ]
@@ -238,7 +246,7 @@
         "name_ar": "ريش",
         "description": "",
         "description_ar": "",
-        "price": 1277,
+        "price": 1280,
         "image": ""
       },
       {
@@ -246,7 +254,7 @@
         "name_ar": "كباب ضاني (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 1222,
+        "price": 1220,
         "image": ""
       },
       {
@@ -254,7 +262,7 @@
         "name_ar": "كفتة كندوز (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 548,
+        "price": 550,
         "image": ""
       },
       {
@@ -262,7 +270,7 @@
         "name_ar": "كيلو مشكل",
         "description": "",
         "description_ar": "",
-        "price": 1001,
+        "price": 1000,
         "image": ""
       },
       {
@@ -294,7 +302,7 @@
         "name_ar": "ك ممبار (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 283,
+        "price": 285,
         "image": ""
       },
       {
@@ -302,7 +310,7 @@
         "name_ar": "ك سجق مشوي (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 559,
+        "price": 560,
         "image": ""
       },
       {
@@ -310,7 +318,7 @@
         "name_ar": "ك سجق اسكندراني (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 614,
+        "price": 615,
         "image": ""
       },
       {
@@ -318,7 +326,7 @@
         "name_ar": "موزة ضاني",
         "description": "",
         "description_ar": "",
-        "price": 471,
+        "price": 470,
         "image": ""
       },
       {
@@ -334,7 +342,7 @@
         "name_ar": "ك نيفا (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 946,
+        "price": 950,
         "image": ""
       },
       {
@@ -342,7 +350,7 @@
         "name_ar": "ك كبدة ضاني مشوي (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 891,
+        "price": 890,
         "image": ""
       },
       {
@@ -358,7 +366,7 @@
         "name_ar": "ك استيك (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 946,
+        "price": 945,
         "image": ""
       },
       {
@@ -381,7 +389,7 @@
         "name_ar": "فرخة تكا",
         "description": "",
         "description_ar": "",
-        "price": 371,
+        "price": 370,
         "image": ""
       },
       {
@@ -389,7 +397,7 @@
         "name_ar": "فرخة شيش",
         "description": "",
         "description_ar": "",
-        "price": 371,
+        "price": 370,
         "image": ""
       },
       {
@@ -397,15 +405,15 @@
         "name_ar": "فرخة مخلية",
         "description": "",
         "description_ar": "",
-        "price": 393,
+        "price": 390,
         "image": ""
       },
       {
-        "name": "Pigeon",
-        "name_ar": "فرد حمام",
+        "name": "Pigeon (Rice or Freekeh)",
+        "name_ar": "فرد حمام (رز أو فريك)",
         "description": "",
         "description_ar": "",
-        "price": 189,
+        "price": 190,
         "image": ""
       },
       {
@@ -413,7 +421,7 @@
         "name_ar": "ك صدور مشوي (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 504,
+        "price": 500,
         "image": ""
       },
       {
@@ -421,7 +429,7 @@
         "name_ar": "ك شيش طاووق (كيلو)",
         "description": "",
         "description_ar": "",
-        "price": 504,
+        "price": 500,
         "image": ""
       }
     ]
@@ -436,7 +444,7 @@
         "name_ar": "طرشي",
         "description": "",
         "description_ar": "",
-        "price": 18,
+        "price": 20,
         "image": ""
       },
       {
@@ -444,7 +452,7 @@
         "name_ar": "طماطم مخللة",
         "description": "",
         "description_ar": "",
-        "price": 23,
+        "price": 25,
         "image": ""
       },
       {
@@ -460,7 +468,7 @@
         "name_ar": "سلطة خضراء",
         "description": "",
         "description_ar": "",
-        "price": 23,
+        "price": 25,
         "image": ""
       },
       {
@@ -468,7 +476,7 @@
         "name_ar": "طحينة",
         "description": "",
         "description_ar": "",
-        "price": 51,
+        "price": 50,
         "image": ""
       },
       {
@@ -476,7 +484,7 @@
         "name_ar": "بابا غنوج",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       },
       {
@@ -484,7 +492,7 @@
         "name_ar": "باذنجان مخلل",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       },
       {
@@ -492,7 +500,7 @@
         "name_ar": "طاجن ملوخية سادة",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       }
     ]
@@ -507,7 +515,7 @@
         "name_ar": "حواوشي سادة",
         "description": "",
         "description_ar": "",
-        "price": 73,
+        "price": 75,
         "image": ""
       },
       {
@@ -515,7 +523,7 @@
         "name_ar": "حواوشي مطبخ جدتي",
         "description": "",
         "description_ar": "",
-        "price": 84,
+        "price": 85,
         "image": ""
       },
       {
@@ -523,7 +531,7 @@
         "name_ar": "حواوشي ضاني",
         "description": "",
         "description_ar": "",
-        "price": 106,
+        "price": 100,
         "image": ""
       },
       {
@@ -531,7 +539,7 @@
         "name_ar": "حواوشي ضاني بالجبنة",
         "description": "",
         "description_ar": "",
-        "price": 111,
+        "price": 110,
         "image": ""
       },
       {
@@ -539,7 +547,7 @@
         "name_ar": "حواوشي سوبر",
         "description": "",
         "description_ar": "",
-        "price": 117,
+        "price": 115,
         "image": ""
       },
       {
@@ -547,7 +555,7 @@
         "name_ar": "حواوشي سوبر بالجبنة",
         "description": "",
         "description_ar": "",
-        "price": 123,
+        "price": 125,
         "image": ""
       },
       {
@@ -555,7 +563,7 @@
         "name_ar": "حواوشي بالجبنة",
         "description": "",
         "description_ar": "",
-        "price": 139,
+        "price": 140,
         "image": ""
       },
       {
@@ -563,7 +571,7 @@
         "name_ar": "حواوشي مطبخ جدتي بالبسطرمة",
         "description": "",
         "description_ar": "",
-        "price": 117,
+        "price": 120,
         "image": ""
       }
     ]
@@ -578,7 +586,7 @@
         "name_ar": "مكرونة لحمة",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -586,7 +594,7 @@
         "name_ar": "مكرونة سجق",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -594,7 +602,7 @@
         "name_ar": "مكرونة كبدة",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -602,7 +610,7 @@
         "name_ar": "مكرونة بشاميل",
         "description": "",
         "description_ar": "",
-        "price": 111,
+        "price": 110,
         "image": ""
       },
       {
@@ -610,7 +618,7 @@
         "name_ar": "مكرونة نجرسكو",
         "description": "",
         "description_ar": "",
-        "price": 89,
+        "price": 90,
         "image": ""
       },
       {
@@ -618,7 +626,7 @@
         "name_ar": "مكرونة فراخ",
         "description": "",
         "description_ar": "",
-        "price": 73,
+        "price": 75,
         "image": ""
       },
       {
@@ -626,7 +634,7 @@
         "name_ar": "مكرونة صغير",
         "description": "",
         "description_ar": "",
-        "price": 51,
+        "price": 50,
         "image": ""
       },
       {
@@ -649,7 +657,7 @@
         "name_ar": "وجبة ميكس",
         "description": "Quarter chicken, 2 kofta, 2 tarb, basmati rice",
         "description_ar": "ربع فرخة، ٢ كفتة، ٢ طرب، أرز بسمتي",
-        "price": 211,
+        "price": 210,
         "image": ""
       },
       {
@@ -657,7 +665,7 @@
         "name_ar": "وجبة التوفير",
         "description": "Quarter chicken, sha'riya rice, vegetable box",
         "description_ar": "ربع فرخة، أرز شعرية، علبة خضار",
-        "price": 139,
+        "price": 140,
         "image": ""
       },
       {
@@ -665,7 +673,7 @@
         "name_ar": "وجبة أبو حمزة",
         "description": "Quarter chicken, one eighth kofta, basmati rice",
         "description_ar": "ربع فرخة، ثُمن كفتة، أرز بسمتي",
-        "price": 139,
+        "price": 140,
         "image": ""
       },
       {
@@ -673,7 +681,7 @@
         "name_ar": "وجبة كباب أبو حمزة",
         "description": "Quarter kebab, stuffed vine leaves",
         "description_ar": "ربع كباب، ورق عنب",
-        "price": 327,
+        "price": 330,
         "image": ""
       },
       {
@@ -681,7 +689,7 @@
         "name_ar": "وجبة كفتة وطرب وسجق",
         "description": "One eighth kofta, one eighth tarb, one eighth sausage, basmati rice",
         "description_ar": "ثُمن كفتة، ثُمن طرب، ثُمن سجق، أرز بسمتي",
-        "price": 222,
+        "price": 225,
         "image": ""
       },
       {
@@ -697,7 +705,7 @@
         "name_ar": "وجبة شيش طاووق",
         "description": "Quarter shish tawook, basmati rice",
         "description_ar": "ربع شيش طاووق، أرز بسمتي",
-        "price": 327,
+        "price": 330,
         "image": ""
       },
       {
@@ -705,7 +713,7 @@
         "name_ar": "وجبة فراخ محمرة",
         "description": "Quarter roasted chicken, vegetables, rice",
         "description_ar": "ربع فرخة محمرة، خضار، أرز",
-        "price": 139,
+        "price": 140,
         "image": ""
       },
       {
@@ -713,7 +721,7 @@
         "name_ar": "وجبة صدور فيليه",
         "description": "Quarter fillet, basmati rice",
         "description_ar": "ربع فيليه، أرز بسمتي",
-        "price": 172,
+        "price": 175,
         "image": ""
       },
       {
@@ -721,7 +729,7 @@
         "name_ar": "وجبة دايت",
         "description": "One third fillet, yogurt",
         "description_ar": "ثلث فيليه، زبادي",
-        "price": 172,
+        "price": 175,
         "image": ""
       },
       {
@@ -729,7 +737,7 @@
         "name_ar": "وجبة كفتة",
         "description": "Quarter kofta, basmati rice, salads",
         "description_ar": "ربع كفتة، أرز بسمتي، سلطات",
-        "price": 183,
+        "price": 185,
         "image": ""
       },
       {
@@ -737,7 +745,7 @@
         "name_ar": "وجبة فراخ",
         "description": "Half chicken, basmati rice",
         "description_ar": "نصف فرخة، أرز بسمتي",
-        "price": 216,
+        "price": 220,
         "image": ""
       },
       {
@@ -745,7 +753,7 @@
         "name_ar": "وجبة الممدمة",
         "description": "Half roasted chicken, stuffed vine leaves",
         "description_ar": "نصف فرخة محمرة، ورق عنب",
-        "price": 205,
+        "price": 200,
         "image": ""
       },
       {
@@ -768,7 +776,7 @@
         "name_ar": "شوربة كوارع",
         "description": "",
         "description_ar": "",
-        "price": 117,
+        "price": 120,
         "image": ""
       },
       {
@@ -776,7 +784,7 @@
         "name_ar": "فتة سادة",
         "description": "",
         "description_ar": "",
-        "price": 73,
+        "price": 75,
         "image": ""
       },
       {
@@ -784,7 +792,7 @@
         "name_ar": "فتة لحمة",
         "description": "",
         "description_ar": "",
-        "price": 228,
+        "price": 230,
         "image": ""
       },
       {
@@ -792,7 +800,7 @@
         "name_ar": "فتة كوارع",
         "description": "",
         "description_ar": "",
-        "price": 283,
+        "price": 285,
         "image": ""
       },
       {
@@ -800,7 +808,7 @@
         "name_ar": "محشي كوسة",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -808,7 +816,7 @@
         "name_ar": "محشي باذنجان",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -816,7 +824,7 @@
         "name_ar": "محشي فلفل",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -824,7 +832,7 @@
         "name_ar": "صينية رقاق باللحمة",
         "description": "",
         "description_ar": "",
-        "price": 139,
+        "price": 140,
         "image": ""
       }
     ]
@@ -847,7 +855,7 @@
         "name_ar": "أرز بالخضار",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -855,7 +863,7 @@
         "name_ar": "أرز كبدة اسكندراني",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -863,7 +871,7 @@
         "name_ar": "أرز بسمتي",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -871,7 +879,7 @@
         "name_ar": "أرز معمر",
         "description": "",
         "description_ar": "",
-        "price": 84,
+        "price": 85,
         "image": ""
       },
       {
@@ -879,7 +887,7 @@
         "name_ar": "محشي مشكل",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -887,7 +895,7 @@
         "name_ar": "محشي ورق عنب",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -895,7 +903,7 @@
         "name_ar": "شوربة لسان عصفور",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       }
     ]
@@ -934,7 +942,7 @@
         "name_ar": "أرز باللبن",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -942,7 +950,7 @@
         "name_ar": "مهلبية",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -950,7 +958,7 @@
         "name_ar": "أم علي",
         "description": "",
         "description_ar": "",
-        "price": 73,
+        "price": 75,
         "image": ""
       },
       {
@@ -958,7 +966,7 @@
         "name_ar": "كنافة على الفحم",
         "description": "",
         "description_ar": "",
-        "price": 62,
+        "price": 65,
         "image": ""
       }
     ]
@@ -973,7 +981,7 @@
         "name_ar": "بيبسي",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       }
     ]
@@ -988,7 +996,7 @@
         "name_ar": "طاجن ملوخية سادة (صيامي)",
         "description": "Molokhiyah cooked without meat or animal broth.",
         "description_ar": "ملوخية مطبوخة بدون لحمة أو مرق حيواني.",
-        "price": 62,
+        "price": 65,
         "image": ""
       },
       {
@@ -996,7 +1004,7 @@
         "name_ar": "طاجن خضار سادة (صيامي)",
         "description": "Vegetable casserole cooked without meat or animal broth.",
         "description_ar": "طاجن خضار مطبوخ بدون لحمة أو مرق حيواني.",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -1036,7 +1044,7 @@
         "name_ar": "بابا غنوج",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       },
       {
@@ -1044,7 +1052,7 @@
         "name_ar": "سلطة خضراء",
         "description": "",
         "description_ar": "",
-        "price": 23,
+        "price": 25,
         "image": ""
       },
       {
@@ -1052,7 +1060,7 @@
         "name_ar": "طرشي",
         "description": "",
         "description_ar": "",
-        "price": 18,
+        "price": 20,
         "image": ""
       },
       {
@@ -1060,7 +1068,7 @@
         "name_ar": "باذنجان مخلل",
         "description": "",
         "description_ar": "",
-        "price": 29,
+        "price": 30,
         "image": ""
       },
       {
@@ -1068,7 +1076,7 @@
         "name_ar": "طماطم مخللة",
         "description": "",
         "description_ar": "",
-        "price": 23,
+        "price": 30,
         "image": ""
       },
       {
@@ -1084,7 +1092,7 @@
         "name_ar": "أرز بسمتي",
         "description": "",
         "description_ar": "",
-        "price": 56,
+        "price": 55,
         "image": ""
       },
       {
@@ -1092,7 +1100,7 @@
         "name_ar": "شوربة لسان عصفور (صيامي)",
         "description": "Prepared with vegetable broth.",
         "description_ar": "معدة بمرق خضار.",
-        "price": 29,
+        "price": 30,
         "image": ""
       },
       {
