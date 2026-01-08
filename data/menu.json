@@ -5,6 +5,22 @@
     "name_ar": "صواني مطبخ جدتي",
     "items": [
       {
+        "name": "Sanyat Goulash (Beef / Cheese Mix)",
+        "name_ar": "صينية جلاش (لحمة / جبنة)",
+        "description": "Classic Egyptian goulash tray filled with a mix of seasoned beef and cheese",
+        "description_ar": "صينية جلاش مصرية محشوة بخليط من اللحمة المتبلة والجبنة",
+        "price": 350,
+        "image": ""
+      },
+      {
+        "name": "Sanyat Béchamel (Beef / Cheese Mix)",
+        "name_ar": "صينية بشاميل (لحمة / جبنة)",
+        "description": "Oven-baked béchamel tray layered with pasta, seasoned beef, and cheese",
+        "description_ar": "صينية بشاميل بالفرن بطبقات مكرونة ولحمة متبلة وجبنة",
+        "price": 350,
+        "image": ""
+      },
+      {
         "name": "Matbakh Gedity Tray",
         "name_ar": "صينية مطبخ جدتي",
         "description": "Far'kha sheesh, 1 kilo kofta, one third tarb, quarter mombar, basmati rice",
